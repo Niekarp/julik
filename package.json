@@ -1,15 +1,21 @@
 {
   "name": "julik",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "webpage about julik",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js",
     "release": "standard-version"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "standard-version": "^9.0.0"
+    "standard-version": "^9.0.0",
+    "webpack": "^5.9.0",
+    "webpack-cli": "^4.2.0"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1"
   }
 }
