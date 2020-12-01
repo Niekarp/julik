@@ -1,55 +1,69 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="html-animation">
 <head>
   <meta charset="utf-8" />
-  <title>Julik</title>
+  <title>Dr. Julik</title>
+  <link href="styles/normalize.css" rel="stylesheet" />
   <link href="styles/styles.css" rel="stylesheet" />
+  <script src="scripts/jquery-3.5.1.js" defer></script>
   <script src="scripts/main.js" defer></script>
 </head>
-<body class="heartbeat-animation">
-  <header>
-    <h1 id="page-header">Julik pies bagienny groźny</h1>
+<body>
+  <header id="julik-hero-section" class="hero-section">
+    <h1 id="julik-hero-header">Julik</h1>
+    <div class="hero-navigation-arrow"></div>
   </header>
 
-  <main>
-    <article>
-      <section>
-        <img id="julik-img" src="images/julik.jpg" alt="julik dog standing hopefully" />
-      </section>
+  <div id="main-section">
+    <header>
+      <h1 id="page-header">Julik pies bagienny groźny</h1>
+    </header>
 
-      <section>
-        <h2>Ogółem</h2>
-        <p id="julik-introduction-p"><a href="#julik-img"> Julik</a> został przywieziony z Hiszpanii i czasem chodzi do fryzjera</p>
-      </section>
-    
-      <section>
-        <h2>Pokarm</h2>
-        <p>Jedzenie które Julik zajada sie (<a id="add-food-link" href="javascript:void(0)" title="dodaj jedzonko">znasz jeszcze jakies?</a>)</p>
-        <ul id="food-list">
-          <li><a href="https://www.dolina-noteci.pl">Dolina smieci</a></li>
-          <li>Jajko</li>
-          <li>Ranczos</li>
-        </ul>
-        <p>I inne rzeczy od taty</p>
-      </section>
+    <main>
+      <article>
+        <section>
+          <img id="julik-img" src="images/julik.jpg" alt="julik dog standing hopefully" />
+        </section>
 
-      <section>
-        <h2>Zachowanie</h2>
-        <p id="julik-behaviour-p">Julik szczeka na swoje odbicie w lustrze i biega wtedy po domu szukając zaczepki</p>
-      </section>
-    </article>
-  </main>
+        <section>
+          <h2 id="julik-introduction-h2">Ogółem</h2>
+          <p id="julik-introduction-p"><a href="#julik-img"> Julik</a> został przywieziony z Hiszpanii i czasem chodzi do fryzjera</p>
+        </section>
+      
+        <section>
+          <h2>Pokarm</h2>
+          <p>Jedzenie które Julik zajada sie (<a id="add-food-link" href="javascript:void(0)" title="dodaj jedzonko">znasz jeszcze jakies?</a>)</p>
+          <ul id="food-list">
+            <li><a href="https://www.dolina-noteci.pl">Dolina smieci</a></li>
+            <li>Jajko</li>
+            <li>Ranczos</li>
+          </ul>
+          <p>I inne rzeczy od taty</p>
+        </section>
 
-  <hr />
-  <footer>
-    <p id="julik-loving-p">Kochasz Julika? <a href="mailto:olino00727@gmail.com?cc=skrzynkaof@gmail.com&subject=Uwielbiam%20Juliki&body=Julik%20to%20tak%20jak%20najlepszy%20pies%20na%20podlasiu%20wg.%20mnie.">Daj nam znać co o tym sądzisz</a></p>
-    <button id="page-reset-btn">Reset</button>    
-  </footer>
+        <section>
+          <h2>Zachowanie</h2>
+          <p id="julik-behaviour-p">Julik szczeka na swoje odbicie w lustrze i biega wtedy po domu szukając zaczepki</p>
+        </section>
+      </article>
+    </main>
 
-  <aside>
-    <div id="news-container">
-      <p id="news-p" class="news-moving-animation">Ranczos</p>
-    </div>
-  </aside>
+    <hr />
+    <footer>
+      <p id="julik-loving-p">Kochasz Julika? <a href="mailto:olino00727@gmail.com?cc=skrzynkaof@gmail.com&subject=Uwielbiam%20Juliki&body=Julik%20to%20tak%20jak%20najlepszy%20pies%20na%20podlasiu%20wg.%20mnie.">Daj nam znać co o tym sądzisz</a></p>
+      <button id="page-reset-btn">Reset</button>    
+    </footer>
+
+    <aside>
+      <div id="news-container">
+        <p id="news-p" class="news-moving-animation">Ranczos</p>
+      </div>
+    </aside>
+  </div>
+  
+  <div id="baba-hero" class="hero-section"></div>
+
+  <!-- Elements positioned absolutely -->
+  <div id="background-container"></div>
 </body>
 </html>

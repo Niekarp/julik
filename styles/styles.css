@@ -1,111 +1,286 @@
 /* General */
+/* ========================================================================= */
 
 @font-face {
   font-family: "localLato";
   src: url("../fonts/Lato/Lato-Regular.ttf");
 }
+
 html {
   position: relative;
   font-size: 12px;
   font-family: "localLato", sans-serif;
-  background-color: rgba(120, 88, 67, 0.8);
+  background-color: rgba(120, 88, 67, 0.6);
+
+  background-image: url("../images/b1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
   color: ghostwhite;
-  background-repeat: round;
   transition: background-image 2s;
+  cursor: url("../images/dog-cursor.png"), default;
 }
-body {
-  width: 450px;
+
+#main-section {
+  position: sticky;
+  inline-size: 450px;
   margin: 0 auto;
   margin-bottom: 50px;
   margin-top: 20px;
-  background-color: rgba(120, 88, 67, 0.85);
+  scroll-margin-top: 20px;
+  background: linear-gradient(0deg, rgba(56,0,0,0.6990371148459384) 0%, rgba(88,46,19,0.6970763305322129) 65%);
   padding: 0 20px 20px 20px;
-  border: 2px solid whitesmoke;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 8px;
+  opacity: 0;
 }
+
 h1 {
   margin: 0;
   padding: 20px 0;
   color: white;
-  text-shadow: 17px 20px 5px rosybrown;
+  text-shadow: 17px 18px 5px rgba(255,255,255, 0.2);
   font-size: 35px;
   text-align: center;
 }
+
+h1[margin-left="0"] {
+  color: red;
+}
+
 h2 {
   text-align: center;
 }
+
 p, li {
   font-size: 14px;
   line-height: 1.6;
   letter-spacing: 1px;
 }
+
 a {
   color: sandybrown;
 }
 
+a:hover {
+  cursor: url("../images/dog-open-cursor.png"), default;
+}
+
+::marker {
+  content: "🐶   ";
+}
+
+::selection {
+  color: whitesmoke;
+  background-color: burlywood;
+  text-shadow: #FC0 1px 0 10px;
+  /* cursor: url("../images/dog-cursor-open.png"), default; */
+}
+
+/* Hero section */
+/* ========================================================================= */
+
+#julik-hero-section {
+  background-image: url("../images/hero-section.jpg");
+}
+
+#julik-hero-header {
+	font-size: 16vh;
+	background-color: rgba(0,0,0, 0.15);
+	border-radius: 30px;
+	padding: 0 10vw;
+	margin: 0;
+	margin-bottom: 10vh;
+	text-shadow: none;
+	color: rgba(255, 255, 255, 0.9);
+	font-family: calibri;
+}
+
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-navigation-arrow {
+  width: 10vh;
+  height: 10vh;
+  position: absolute;
+  bottom: 0;
+  border-color: white;
+  border: solid white;
+  border-width: 0 1vh 1vh 0;
+  margin-bottom: 5vh;
+  cursor: pointer;
+  transform: rotate(45deg);
+}
+
+/* Id's */
+/* ========================================================================= */
+
+#baba-hero {
+  background-image: url("../images/baba.png");
+  background-position: top;
+  background-attachment: scroll;
+}
+
+#background-container {
+  display: none;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -999;
+  background-image: url("../images/b2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 /* Main content */
+/* ========================================================================= */
 
 #julik-img {
   display: block;
-  width: 100%;
+  inline-size: 100%;
   height: 400px;
   margin: 0 auto;
-  border: 1px solid navajowhite;
+  border: 0px 0px 8px black;
   border-radius: 16px;
-  box-shadow: 0px 0px 5px white;
+  /* box-shadow: 0px 0px 5px white; */
   transition: left 0.2s, top 0.2s;
+  z-index: 50;
 }
 
 /* News banner */
+/* ========================================================================= */
 
 #page-reset-btn {
   display: none;
 }
+
 #news-container { 
-  position: absolute;
+  /* position: absolute;
   left: 0;
-  bottom: 0;
-  width: 100%;
-  /* border: 2px dotted white; */
+  bottom: 0; */
+  inline-size: 100%;
   border-left: hidden;
   border-right: hidden;
+  border-radius: 8px;
   padding: 10px 0;
   margin: 0;
   background-color: rgba(0,0,0,0.2);
   z-index: -1;
   overflow: hidden;
 }
+
 #news-p {
   transform: translateX(100%);
-  width: 100%;
+  inline-size: 100%;
   margin: 0;
 }
 
 /* Classes */
+/* ========================================================================= */
 
-.horror-julik {
-  border-radius: 70% 50% !important;
-  transform: rotate(-27deg) !important;
-  width: 80% !important;
-}
+
 .horror-html {
   background-color: black !important;
+  background-image: url("../images/horror-background.png");
+  background-repeat: round;
+  background-size: unset;
+  background-position: unset;
   color: black !important;
   font-family: cursive !important;
+  cursor: url("../assets/skull.cur"), default;
 }
+
 .horror-body {
-  background-color: darkred !important;
+  background: darkred !important;
   border: 2px solid palegreen !important;
   border-radius: 130px 130px 0px 0px !important;
 }
+
+.horror-julik {
+  position: relative;
+  border-radius: 70% 50% !important;
+  border: 1px solid navajowhite !important;
+  box-shadow: 0px 0px 5px white;
+  transform: rotate(-27deg) !important;
+  inline-size: 80% !important;
+}
+
 .horror-h1 {
   color: red !important;
 }
+
+.wola-retro-button {
+  width: 100px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  background-color: gray;
+  opacity: 0.3;
+  z-index: 49;
+}
+
+.wola-retro-video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -999;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .wola-retro-video-background {
+      width:100%;
+      height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .wola-retro-video-background { 
+      width:auto;
+      height: 100%;
+  }
+}
+
 .horror-transitions {
   transition: background-color 1s, color 2s, font-familly 3s, border 4s, border-radius 4s;
 }
 
+.horror-marker::marker {
+  content: "🦴   ";
+}
+
 /* Animations */
+/* ========================================================================= */
+
+.background-lumination-animation {
+  animation-name: lumination;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes lumination {
+  0%   {background-blend-mode: unset;}
+  50%  {background-blend-mode: luminosity;}
+  100% {background-blend-mode: unset;}
+}
 
 .news-moving-animation {
   animation-name: bannering;
@@ -113,15 +288,22 @@ a {
   animation-iteration-count: 1;
   animation-timing-function: linear;
 }
+
 @keyframes bannering {
-  0%   {transform: translateX(-100%);}
-  100% {transform: translateX(100%);}
+  0%   {transform: translateX(100%);}
+  100% {transform: translateX(-100%);}
 }
+
 .animate-julik {
-  animation-name: shake;
-  animation-duration: 0.2s;
-  animation-iteration-count: 2;
+  /* animation-name: shake; */
+  /* animation-duration: 0.2s; */
+  /* animation-iteration-count: 2; */
+
+  animation: 
+    borderRadiusChange 5s ease-in-out 0s infinite alternate,
+    shake 0.2s 0s 2;
 }
+
 @keyframes shake {
   0%   {transform: rotate(0deg);}
   25%  {transform: rotate(5deg);}
@@ -129,6 +311,30 @@ a {
   75% {transform: rotate(-5deg);}
   100% {transform: rotate(0deg);}
 }
+
+.body-animation {
+  animation: 
+    pageBeat 10s ease-in 0s infinite, 
+    fadeInOpacity 2s ease-in-out 0s 1,
+    scaleIn 2s ease-in-out 0s 1;
+}
+
+@keyframes borderRadiusChange {
+  0% {border-radius: 10px 80px 50px 20px;}
+  100% {border-radius: 70px 20px 120px 70px;}
+}
+
+@keyframes pageBeat {
+  0%    {box-shadow: 0px 0px 1px sandybrown;}
+  50%   {box-shadow: 0px 0px 50px sandybrown;}
+  100%  {box-shadow: 0px 0px 1px sandybrown;}
+}
+
+@keyframes scaleIn {
+  0%   { transform: scale(0,0); }
+  100% { transform: scale(1,1); }
+}
+
 .fade-in {
 	opacity: 1;
 	animation-name: fadeInOpacity;
@@ -136,29 +342,18 @@ a {
 	animation-timing-function: ease-in;
 	animation-duration: 0.5s;
 }
+
 @keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
 }
-.heartbeat-animation {
-  animation-name: pageBeat;
-  animation-duration: 10s;
-  animation-iteration-count: infinite;
-}
-@keyframes pageBeat {
-  0%    {box-shadow: 0px 0px 1px sandybrown;}
-  50%   {box-shadow: 0px 0px 50px sandybrown;}
-  100%  {box-shadow: 0px 0px 1px sandybrown;}
-}
+
 .heartbeat-animation-horror {
   animation-name: pageBeatHorror;
   animation-duration: 10s;
   animation-iteration-count: infinite;
 }
+
 @keyframes pageBeatHorror {
   0%    {box-shadow: 0px 0px 1px darkred;}
   50%   {box-shadow: 0px 0px 50px crimson;}
