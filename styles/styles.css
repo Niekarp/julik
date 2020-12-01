@@ -1,0 +1,166 @@
+/* General */
+
+@font-face {
+  font-family: "localLato";
+  src: url("../fonts/Lato/Lato-Regular.ttf");
+}
+html {
+  position: relative;
+  font-size: 12px;
+  font-family: "localLato", sans-serif;
+  background-color: rgba(120, 88, 67, 0.8);
+  color: ghostwhite;
+  background-repeat: round;
+  transition: background-image 2s;
+}
+body {
+  width: 450px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  background-color: rgba(120, 88, 67, 0.85);
+  padding: 0 20px 20px 20px;
+  border: 2px solid whitesmoke;
+  border-radius: 8px;
+}
+h1 {
+  margin: 0;
+  padding: 20px 0;
+  color: white;
+  text-shadow: 17px 20px 5px rosybrown;
+  font-size: 35px;
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+p, li {
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
+a {
+  color: sandybrown;
+}
+
+/* Main content */
+
+#julik-img {
+  display: block;
+  width: 100%;
+  height: 400px;
+  margin: 0 auto;
+  border: 1px solid navajowhite;
+  border-radius: 16px;
+  box-shadow: 0px 0px 5px white;
+  transition: left 0.2s, top 0.2s;
+}
+
+/* News banner */
+
+#page-reset-btn {
+  display: none;
+}
+#news-container { 
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* border: 2px dotted white; */
+  border-left: hidden;
+  border-right: hidden;
+  padding: 10px 0;
+  margin: 0;
+  background-color: rgba(0,0,0,0.2);
+  z-index: -1;
+  overflow: hidden;
+}
+#news-p {
+  transform: translateX(100%);
+  width: 100%;
+  margin: 0;
+}
+
+/* Classes */
+
+.horror-julik {
+  border-radius: 70% 50% !important;
+  transform: rotate(-27deg) !important;
+  width: 80% !important;
+}
+.horror-html {
+  background-color: black !important;
+  color: black !important;
+  font-family: cursive !important;
+}
+.horror-body {
+  background-color: darkred !important;
+  border: 2px solid palegreen !important;
+  border-radius: 130px 130px 0px 0px !important;
+}
+.horror-h1 {
+  color: red !important;
+}
+.horror-transitions {
+  transition: background-color 1s, color 2s, font-familly 3s, border 4s, border-radius 4s;
+}
+
+/* Animations */
+
+.news-moving-animation {
+  animation-name: bannering;
+  animation-duration: 15s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+@keyframes bannering {
+  0%   {transform: translateX(-100%);}
+  100% {transform: translateX(100%);}
+}
+.animate-julik {
+  animation-name: shake;
+  animation-duration: 0.2s;
+  animation-iteration-count: 2;
+}
+@keyframes shake {
+  0%   {transform: rotate(0deg);}
+  25%  {transform: rotate(5deg);}
+  50% {transform: rotate(0deg);}
+  75% {transform: rotate(-5deg);}
+  100% {transform: rotate(0deg);}
+}
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.5s;
+}
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.heartbeat-animation {
+  animation-name: pageBeat;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+@keyframes pageBeat {
+  0%    {box-shadow: 0px 0px 1px sandybrown;}
+  50%   {box-shadow: 0px 0px 50px sandybrown;}
+  100%  {box-shadow: 0px 0px 1px sandybrown;}
+}
+.heartbeat-animation-horror {
+  animation-name: pageBeatHorror;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+@keyframes pageBeatHorror {
+  0%    {box-shadow: 0px 0px 1px darkred;}
+  50%   {box-shadow: 0px 0px 50px crimson;}
+  100%  {box-shadow: 0px 0px 1px darkslategray;}
+}
