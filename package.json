@@ -1,0 +1,15 @@
+{
+  "name": "julik",
+  "version": "1.0.0",
+  "description": "webpage about julik",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "standard-version"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "standard-version": "^9.0.0"
+  }
+}
