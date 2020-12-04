@@ -34,13 +34,27 @@ module.exports = {
       {
         test: /\.html$/i,
         loader: 'html-loader',
+        options: {
+          attributes: {
+            list: [
+              {
+                // Tag name
+                tag: 'link',
+                // Attribute name
+                attribute: 'href',
+                // Type of processing, can be `src` or `scrset`
+                type: 'src',
+              }
+            ]
+          }
+        }
       },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|cur|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|cur|gif|ico)$/i,
         use: [{
           loader: 'file-loader',
           options: {
