@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](///compare/v2.0.1...v3.0.0) (2020-12-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* new project structure
+
+### Features
+
+* app modulatisation and webpack integration 47de0b8
+
+
+### Bug Fixes
+
+* files reorganisation 3841622
+
 ### [2.0.1](///compare/v2.0.0...v2.0.1) (2020-12-01)
 
 
