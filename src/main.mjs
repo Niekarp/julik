@@ -3,3 +3,7 @@
 import "./index.html";
 import "./styles/normalize.css";
 import "./styles.css";
+
+setTimeout(() => {
+  $("html").delay(1000).animate({ opacity: 1 }, 1000);
+}, 200);
