@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](///compare/v3.1.0...v3.1.1) (2020-12-08)
+
+
+### Bug Fixes
+
+* **julik:** movement with translate 3106f3e
+* add wola retro mp4 without blank columns 7756f7a
+* **julik:** set woof limit to 15 b465530
+
 ## [3.1.0](///compare/v3.0.0...v3.1.0) (2020-12-04)
 
 
