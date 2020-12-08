@@ -110,41 +110,6 @@ a:hover {
 /* Classes */
 /* ========================================================================= */
 
-.wola-retro-button {
-  width: 100px;
-  height: 50px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -50px;
-  background-color: gray;
-  opacity: 0.3;
-  z-index: 49;
-}
-
-.wola-retro-video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: -999;
-}
-
-@media (min-aspect-ratio: 16/9) {
-  .wola-retro-video-background {
-      width:100%;
-      height: auto;
-  }
-}
-
-@media (max-aspect-ratio: 16/9) {
-  .wola-retro-video-background { 
-      width:auto;
-      height: 100%;
-  }
-}
-
 .horror-transitions {
   transition: background-color 1s, color 2s, font-familly 3s, border 4s, border-radius 4s;
 }

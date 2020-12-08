@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
     "release": "standard-version",
-    "start": "webpack serve"
+    "start": "webpack serve --host 0.0.0.0"
   },
   "author": "",
   "license": "ISC",
