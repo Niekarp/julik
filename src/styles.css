@@ -14,8 +14,11 @@ html {
   cursor: url("./assets/images/dog-cursor.png"), default;
 }
 
-.loading-page {
+.loading-page-html {
   overflow: hidden;
+}
+
+.loading-page-body {
 }
 
 #main-section {
