@@ -14,6 +14,10 @@ html {
   cursor: url("./assets/images/dog-cursor.png"), default;
 }
 
+.loading-page {
+  overflow: hidden;
+}
+
 #main-section {
   position: sticky;
   inline-size: 450px;
