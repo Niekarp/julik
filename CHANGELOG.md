@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.1](///compare/v3.2.0...v3.2.1) (2020-12-09)
+
+
+### Bug Fixes
+
+* **wola:** remove multiple calls to activate the mode 1e420ae
+* **wola:** wola retro button event run only once 6cc93ee
+
 ## [3.2.0](///compare/v3.1.1...v3.2.0) (2020-12-09)
 
 
