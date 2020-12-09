@@ -1,6 +1,5 @@
 // TODO: try to make multiple bundles with one entry points per page
 // TODO: try to make bundle with shared code with webpack.optimize.CommonsChunkPlugin
-// TODO: use $.one() instead of on for wola retro button
 // TODO: patron page
 import "./index.html";
 import "./styles/normalize.css";
