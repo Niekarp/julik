@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](///compare/v3.1.1...v3.2.0) (2020-12-09)
+
+
+### Features
+
+* add loading screen 487165a
+
+
+### Bug Fixes
+
+* **load:** hide raw html on page load cb2ebf6
+
 ### [3.1.1](///compare/v3.1.0...v3.1.1) (2020-12-08)
 
 
