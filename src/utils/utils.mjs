@@ -9,3 +9,7 @@ export function restartAnimation($element, animationName) {
 export function getAppVersion() {
   return npmPackageInfo.version;
 }
+
+export function getLastUpdateDate() {
+  return LAST_UPDATE_DATE;
+}

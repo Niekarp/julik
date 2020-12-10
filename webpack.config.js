@@ -30,6 +30,9 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery"
     }),
+    new webpack.DefinePlugin({
+      LAST_UPDATE_DATE: JSON.stringify(require("./package.json").lastReleaseDate)
+    }),
   ],
   module: {
     rules: [
@@ -46,6 +49,11 @@ module.exports = {
                 attribute: 'href',
                 // Type of processing, can be `src` or `scrset`
                 type: 'src',
+              },
+              {
+                tag: "img",
+                attribute: "src",
+                type: "src",
               }
             ]
           }
