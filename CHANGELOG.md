@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.4](///compare/v3.2.3...v3.2.4) (2020-12-10)
+
+
+### Bug Fixes
+
+* **wola:** fix guitar overflow f492e3d
+
 ### [3.2.3](///compare/v3.2.2...v3.2.3) (2020-12-09)
 
 ### [3.2.2](///compare/v3.2.1...v3.2.2) (2020-12-09)
