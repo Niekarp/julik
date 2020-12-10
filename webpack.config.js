@@ -5,8 +5,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const IS_DEVELOPMENT = true;
+
 module.exports = {
-  mode: "development",
+  mode: IS_DEVELOPMENT ? "development" : "production",
   entry: glob.sync("./src/**/*.mjs"),
   devtool: "inline-source-map",
   devServer: {
@@ -32,7 +34,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       LAST_UPDATE_DATE: JSON.stringify(require("./package.json").lastReleaseDate),
-      DEV: this.mode === "development",
+      DEV: JSON.stringify(IS_DEVELOPMENT),
     }),
   ],
   module: {
