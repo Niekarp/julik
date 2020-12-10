@@ -31,7 +31,8 @@ module.exports = {
       jQuery: "jquery"
     }),
     new webpack.DefinePlugin({
-      LAST_UPDATE_DATE: JSON.stringify(require("./package.json").lastReleaseDate)
+      LAST_UPDATE_DATE: JSON.stringify(require("./package.json").lastReleaseDate),
+      DEV: this.mode === "development",
     }),
   ],
   module: {
@@ -74,7 +75,7 @@ module.exports = {
         }],
       },
       {
-        test: /\.(mp3|mp4|wav)$/i,
+        test: /\.(mp3|mp4|m4a|wav)$/i,
         use: [{
           loader: 'file-loader',
           options: {

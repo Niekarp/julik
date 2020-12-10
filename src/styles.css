@@ -18,9 +18,6 @@ html {
   overflow: hidden;
 }
 
-.loading-page-body {
-}
-
 #main-section {
   position: sticky;
   inline-size: 450px;
