@@ -65,7 +65,7 @@ a:hover {
   cursor: url("./assets/images/dog-open-cursor.png"), default;
 }
 
-::marker {
+#food-list > li::marker {
   content: "🐶   ";
 }
 
@@ -128,6 +128,39 @@ a:hover {
 /* Animations */
 /* ========================================================================= */
 
+.patreons-container {
+  position: absolute;
+  top: 13%;
+  left: 60%;
+}
+
+.patreons-header {
+  margin: 0 0 1vh 0;
+}
+
+.patreons-list {
+  margin: 0;
+  list-style-type: none;
+  list-style-type: disclosure-closed;
+}
+
+.patreons-list > li {
+  font-size: 3vw;
+  padding: 1vh 0vw;
+  text-align: center;
+}
+
+.patreons-list > hr {
+  margin: 0;
+}
+
+.patreons {
+	font-size: 5vw;
+	font-family: calibri;
+	background-color: rgba(0,0,0, 0.15);
+	border-radius: 8px;
+	padding: 0 6vw;
+}
 
 .news-moving-animation {
   animation-name: bannering;
