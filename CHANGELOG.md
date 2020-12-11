@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](///compare/v3.2.7...v3.3.0) (2020-12-11)
+
+
+### Features
+
+* **wola:** add clickable pieces 6ccb5a1
+
+
+### Bug Fixes
+
+* **webpack:** DEV constant fix 89bb031
+* refactor + add DEV 0d28392
+
 ### [3.2.7](///compare/v3.2.6...v3.2.7) (2020-12-10)
 
 
