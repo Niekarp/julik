@@ -3,9 +3,15 @@ const glob = require("glob");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const IS_DEVELOPMENT = true;
+const IS_DEVELOPMENT = false;
+
+// TODO: improve pageBeat animation performance
+// śconsole.log(require.context("./assets/images", false, /.*/).keys());
+const WOLA_SOUNDS_COVERS_CWD = "./src/modules/wola-retro-mode/assets/";
+const DIST_ASSETS_PATH = "./assets/";
 
 module.exports = {
   mode: IS_DEVELOPMENT ? "development" : "production",
@@ -35,6 +41,15 @@ module.exports = {
     new webpack.DefinePlugin({
       LAST_UPDATE_DATE: JSON.stringify(require("./package.json").lastReleaseDate),
       DEV: JSON.stringify(IS_DEVELOPMENT),
+      ASSETS_PATH: JSON.stringify(DIST_ASSETS_PATH),
+      WOLA_SOUNDS: JSON.stringify(glob.sync("./*", { cwd: WOLA_SOUNDS_COVERS_CWD + "sounds/" })),
+      WOLA_COVERS: JSON.stringify(glob.sync("./*", { cwd: WOLA_SOUNDS_COVERS_CWD + "covers/" })),
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: WOLA_SOUNDS_COVERS_CWD + "sounds/", to: DIST_ASSETS_PATH },
+        { from: WOLA_SOUNDS_COVERS_CWD + "covers/", to: DIST_ASSETS_PATH },
+      ],
     }),
   ],
   module: {
