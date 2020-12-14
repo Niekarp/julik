@@ -1,8 +1,8 @@
 // TODO: try to make multiple bundles with one entry points per page
 // TODO: try to make bundle with shared code with webpack.optimize.CommonsChunkPlugin
-// TODO: patron page
 // TODO: make main section scale better when zooming out
 // TODO: add juik kosmiczny kolor
+// TODO: improve pageBeat animation performance
 import "./index.html";
 import "./styles/normalize.css";
 import "./styles.css";

@@ -6,10 +6,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const IS_DEVELOPMENT = false;
+const IS_DEVELOPMENT = true;
 
-// TODO: improve pageBeat animation performance
-// śconsole.log(require.context("./assets/images", false, /.*/).keys());
 const WOLA_SOUNDS_COVERS_CWD = "./src/modules/wola-retro-mode/assets/";
 const DIST_ASSETS_PATH = "./assets/";
 
