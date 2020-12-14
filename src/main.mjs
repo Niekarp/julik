@@ -3,6 +3,7 @@
 // TODO: make main section scale better when zooming out
 // TODO: add juik kosmiczny kolor
 // TODO: improve pageBeat animation performance
+// TODO: consider adding text hiding when there is no mouse movement in wola retro
 import "./index.html";
 import "./styles/normalize.css";
 import "./styles.css";
