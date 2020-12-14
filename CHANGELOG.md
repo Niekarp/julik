@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.1](///compare/v3.3.0...v3.3.1) (2020-12-14)
+
+
+### Bug Fixes
+
+* **background:** scroll top on page load to avoid displaying white background in middle section 200654d
+* **wola:** wrap list text so that hover applies only on that 5a2461e
+* organize TODO's cb63fec
+
 ## [3.3.0](///compare/v3.2.7...v3.3.0) (2020-12-11)
 
 
