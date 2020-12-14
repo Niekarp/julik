@@ -13,6 +13,7 @@ import { getAppVersion, getLastUpdateDate } from "Utils/utils.mjs";
 $("#version-string").text(`v. ${getAppVersion()} (${getLastUpdateDate()})`);
 
 $(() => {
+  window.scrollTo(0, 0);
   $("body").delay(1000).animate({ opacity: 1 }, 500, "", function() {
     setTimeout(() => {
       $("#loading-page").delay(1000).fadeOut("slow", function() {
