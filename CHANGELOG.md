@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.3](///compare/v3.3.2...v3.3.3) (2020-12-15)
+
+
+### Bug Fixes
+
+* **wola:** normalize utf to use polish characters b01bf92
+
 ### [3.3.2](///compare/v3.3.1...v3.3.2) (2020-12-15)
 
 
