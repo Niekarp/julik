@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.2](///compare/v3.3.1...v3.3.2) (2020-12-15)
+
+
+### Bug Fixes
+
+* **loading-page:** disable auto scroll in each browsers 70f8731
+
 ### [3.3.1](///compare/v3.3.0...v3.3.1) (2020-12-14)
 
 
