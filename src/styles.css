@@ -1,5 +1,17 @@
-/* General */
-/* ========================================================================= */
+/* TODO: fill below */
+/**
+ *
+ * CONTENTS 
+ *
+ */
+
+
+
+
+
+/*=============================================
+=            General ||                       =
+=============================================*/
 
 @font-face {
   font-family: "localLato";
@@ -73,8 +85,15 @@ a:hover {
   /* cursor: url("../images/dog-cursor-open.png"), default; */
 }
 
-/* Hero section */
-/* ========================================================================= */
+/*=====  End of General ||             ======*/
+
+
+
+
+
+/*=============================================
+=            Hero ||                          =
+=============================================*/
 
 #julik-hero-header {
 	font-size: 16vh;
@@ -100,19 +119,15 @@ a:hover {
   transform: rotate(45deg);
 }
 
-/* Id's */
-/* ========================================================================= */
-/* Main content */
-/* ========================================================================= */
+/*=====  End of Hero ||                ======*/
 
-/* News banner */
-/* ========================================================================= */
 
-#page-reset-btn {
-  display: none;
-}
-/* Classes */
-/* ========================================================================= */
+
+
+
+/*=============================================
+=            Classes ||                       =
+=============================================*/
 
 .horror-transitions {
   transition: background-color 1s, color 2s, font-familly 3s, border 4s, border-radius 4s;
@@ -122,8 +137,15 @@ a:hover {
   content: "🦴   ";
 }
 
-/* Animations */
-/* ========================================================================= */
+/*=====  End of Classes ||             ======*/
+
+
+
+
+
+/*=============================================
+=            Animations ||                    =
+=============================================*/
 
 .patreons-container {
   position: absolute;
@@ -157,18 +179,6 @@ a:hover {
 	background-color: rgba(0,0,0, 0.15);
 	border-radius: 8px;
 	padding: 0 6vw;
-}
-
-.news-moving-animation {
-  animation-name: bannering;
-  animation-duration: 15s;
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
-}
-
-@keyframes bannering {
-  0%   {transform: translateX(100%);}
-  100% {transform: translateX(-100%);}
 }
 
 .body-animation {
@@ -219,6 +229,16 @@ a:hover {
   100%  {box-shadow: 0px 0px 1px darkslategray;}
 }
 
+/*=====  End of Animations ||          ======*/
+
+
+
+
+
+/*=============================================
+=            ID's ||                          =
+=============================================*/
+
 #loading-page {
   width: 100vw;
   height: 100vh;
@@ -253,3 +273,9 @@ a:hover {
   -webkit-backdrop-filter: blur(6px);
   box-shadow: inset 0 0 50px rgb(255, 255, 255, 0.5);
 }
+
+#page-reset-btn {
+  display: none;
+}
+
+/*=====  End of ID's ||                ======*/
