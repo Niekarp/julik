@@ -7,8 +7,13 @@
 import "./index.html";
 import "./styles/normalize.css";
 import "./styles.css";
-
 import { getAppVersion, getLastUpdateDate } from "Utils/utils.mjs";
+
+import App from './app.vue';
+
+new Vue({
+  render: (h) => h(App),
+}).$mount("#app");
 
 $("#version-string").text(`v. ${getAppVersion()} (${getLastUpdateDate()})`);
 

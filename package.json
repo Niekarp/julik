@@ -23,12 +23,16 @@
     "sass-loader": "^10.1.0",
     "standard-version": "^9.0.0",
     "style-loader": "^2.0.0",
+    "vue-loader": "^15.9.6",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.12",
     "webpack": "^5.9.0",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "vue": "^2.6.12"
   },
   "lastReleaseDate": "Dec. 15"
 }

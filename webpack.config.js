@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { VueLoaderPlugin } = require("vue-loader");
 
 const IS_DEVELOPMENT = true;
 
@@ -24,7 +25,9 @@ module.exports = {
       Services: path.resolve(__dirname, 'src/services/'),
       Utils: path.resolve(__dirname, 'src/utils/'),
       Src: path.resolve(__dirname, 'src/'),
-    }
+      vue$: 'vue/dist/vue.esm.js'
+    },
+    extensions: ["*", ".js", ".vue", ".json"],
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -34,7 +37,8 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       $: "jquery",
-      jQuery: "jquery"
+      jQuery: "jquery",
+      Vue: [require.resolve('vue/dist/vue.esm.js'), "default"]
     }),
     new webpack.DefinePlugin({
       LAST_UPDATE_DATE: JSON.stringify(require("./package.json").lastReleaseDate),
@@ -49,9 +53,14 @@ module.exports = {
         { from: WOLA_SOUNDS_COVERS_CWD + "covers/", to: DIST_ASSETS_PATH },
       ],
     }),
+    new VueLoaderPlugin(),
   ],
   module: {
     rules: [
+      {
+        test: /\.vue$/,
+        use: "vue-loader"
+      },
       {
         test: /\.html$/i,
         loader: 'html-loader',
