@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
     "release": "standard-version && node ./scripts/addDateToPackage.js",
+    "createComponent": "node ./scripts/createVueComponent.js",
     "start": "webpack serve --host 0.0.0.0"
   },
   "author": "",
