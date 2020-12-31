@@ -1,0 +1,43 @@
+/*=============================================
+=            News banner ||                   =
+=============================================*/
+
+/**
+ *
+ * Component displaying moving news about Julik
+ *
+ */
+ 
+.news-banner { 
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  &__text {
+    inline-size: 100%;
+    margin: 0;
+    transform: translateX(100%);
+
+    &--moving {
+      animation-name: news-banner__bannering-transformation;
+      animation-duration: 15s;
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+    }
+  }
+}
+
+
+
+
+
+/*=============================================
+=            Related ||                       =
+=============================================*/
+
+@keyframes news-banner__bannering-transformation {
+  0%   { transform: translateX( 100% ); }
+  100% { transform: translateX(-100% ); }
+}
+
+/*=====  End of Related ||             ======*/

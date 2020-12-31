@@ -21,13 +21,15 @@ module.exports = {
   },
   resolve: {
     alias: {
-      Modules: path.resolve(__dirname, 'src/modules/'),
-      Services: path.resolve(__dirname, 'src/services/'),
-      Utils: path.resolve(__dirname, 'src/utils/'),
-      Src: path.resolve(__dirname, 'src/'),
-      vue$: 'vue/dist/vue.esm.js'
+      Modules:  path.resolve(__dirname, "src/modules/"),
+      Pages:    path.resolve(__dirname, "src/components/pages/"),
+      Assets:   path.resolve(__dirname, "src/assets/"),
+      Services: path.resolve(__dirname, "src/services/"),
+      Utils:    path.resolve(__dirname, "src/utils/"),
+      Src:      path.resolve(__dirname, "src/"),
+      LocalComponents: "./local-components/"
+      // vue$:     "vue/dist/vue.esm.js"
     },
-    extensions: ["*", ".js", ".vue", ".json"],
   },
   plugins: [
     new CleanWebpackPlugin(),

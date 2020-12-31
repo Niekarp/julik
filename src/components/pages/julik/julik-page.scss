@@ -1,95 +1,8 @@
-/* TODO: fill below */
 /**
  *
  * CONTENTS 
  *
  */
-
-
-
-
-
-/*=============================================
-=            General ||                       =
-=============================================*/
-
-@font-face {
-  font-family: "localLato";
-  src: url("./assets/fonts/Lato/Lato-Regular.ttf");
-}
-
-html {
-  position: relative;
-  font-size: 12px;
-  font-family: "localLato", sans-serif;
-  color: ghostwhite;
-  cursor: url("./assets/images/dog-cursor.png"), default;
-}
-
-.loading-page-html {
-  overflow: hidden;
-}
-
-#main-section {
-  position: sticky;
-  inline-size: 450px;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  margin-top: 20px;
-  scroll-margin-top: 20px;
-  padding: 0 20px 20px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
-  opacity: 0;
-}
-
-h1 {
-  margin: 0;
-  padding: 20px 0;
-  color: white;
-  text-shadow: 17px 18px 5px rgba(255,255,255, 0.2);
-  font-size: 35px;
-  text-align: center;
-}
-
-h1[margin-left="0"] {
-  color: red;
-}
-
-h2 {
-  text-align: center;
-}
-
-p, li {
-  font-size: 14px;
-  line-height: 1.6;
-  letter-spacing: 1px;
-}
-
-a {
-  color: sandybrown;
-}
-
-a:hover {
-  cursor: url("./assets/images/dog-open-cursor.png"), default;
-}
-
-#food-list > li::marker {
-  content: "🐶   ";
-}
-
-::selection {
-  color: whitesmoke;
-  background-color: burlywood;
-  text-shadow: #FC0 1px 0 10px;
-  /* cursor: url("../images/dog-cursor-open.png"), default; */
-}
-
-/*=====  End of General ||             ======*/
-
-
-
-
 
 /*=============================================
 =            Page elements ||                 =
@@ -255,6 +168,19 @@ a:hover {
 =            ID's ||                          =
 =============================================*/
 
+#main-section {
+  position: sticky;
+  inline-size: 450px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  scroll-margin-top: 20px;
+  padding: 0 20px 20px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  opacity: 0;
+}
+
 #loading-page {
   width: 100vw;
   height: 100vh;
@@ -292,6 +218,10 @@ a:hover {
 
 #page-reset-btn {
   display: none;
+}
+
+#food-list > li::marker {
+  content: "🐶   ";
 }
 
 /*=====  End of ID's ||                ======*/

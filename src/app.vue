@@ -5,8 +5,10 @@
 </template>
 
 <script>
-import "./components/my-component.vue";
+import "Pages/julik/julik-page.vue";
 
 export default {
 };
 </script>
+
+<style></style>

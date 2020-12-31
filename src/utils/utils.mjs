@@ -1,6 +1,7 @@
 import npmPackageInfo from "../../package-lock.json";
 
 export function restartAnimation($element, animationName) {
+  $element = $($element);
   $element.removeClass(animationName);
   $element.offset();
   $element.addClass(animationName);

@@ -6,7 +6,7 @@
 // TODO: consider adding text hiding when there is no mouse movement in wola retro
 import "./index.html";
 import "./styles/normalize.css";
-import "./styles.css";
+import "./styles.scss";
 import { getAppVersion, getLastUpdateDate } from "Utils/utils.mjs";
 
 import App from './app.vue';

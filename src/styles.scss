@@ -1,0 +1,75 @@
+/**
+ *
+ * Glocal app stylesheet 
+ *
+ */
+
+/*=============================================
+=            General ||                       =
+=============================================*/
+
+@font-face {
+  font-family: "localLato";
+  src: url("./assets/fonts/Lato/Lato-Regular.ttf");
+}
+
+html {
+  position: relative;
+  font-size: 12px;
+  font-family: "localLato", sans-serif;
+  color: ghostwhite;
+  cursor: url("./assets/images/dog-cursor.png"), default;
+}
+
+h1 {
+  margin: 0;
+  padding: 20px 0;
+  color: white;
+  text-shadow: 17px 18px 5px rgba(255,255,255, 0.2);
+  font-size: 35px;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+p, li {
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
+
+a {
+  color: sandybrown;
+}
+
+a:hover {
+  cursor: url("./assets/images/dog-open-cursor.png"), default;
+}
+
+::selection {
+  color: whitesmoke;
+  background-color: burlywood;
+  text-shadow: #FC0 1px 0 10px;
+}
+
+/*=====  End of General ||             ======*/
+
+
+
+
+
+/*=============================================
+=            Animations ||                    =
+=============================================*/
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+/*=====  End of Animations ||          ======*/
