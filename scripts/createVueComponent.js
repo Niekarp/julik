@@ -1,10 +1,11 @@
 const fs = require("fs");
 
 if (process.argv.length < 3) return;
+// console.log(process.argv, __dirname, process.cwd(), process.env.INIT_CWD);
 
 const componentName       = process.argv[2];
 const componentFolderName = componentName;
-const componentFolderPath = `${__dirname}/${componentFolderName}`; 
+const componentFolderPath = `${process.env.INIT_CWD}/${componentFolderName}`; 
 const componentFilePath   = `${componentFolderPath}/${componentFolderName}`;
 
 const VUE_FILE_BOILERPLATE = 
@@ -19,7 +20,8 @@ const MJS_FILE_BOILERPLATE =
 });
 `;
 const SCSS_FILE_BOILERPLATE = 
-`
+`.${componentName} { 
+}
 `;
 
 fs.mkdir(componentFolderPath, () => {
