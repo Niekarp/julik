@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.2](///compare/v4.0.1...v4.0.2) (2021-01-08)
+
+
+### Bug Fixes
+
+* **wola:** olaf z duzej 6053f20
+
 ### [4.0.1](///compare/v4.0.0...v4.0.1) (2021-01-08)
 
 ## [4.0.0](///compare/v3.3.3...v4.0.0) (2021-01-08)
