@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition appear name="fade">
-      <h1 class="page-title" v-show="true" :style="{ transitionDelay: headerShowDelaySec }">Katalog utworow olafa</h1>
+      <h1 class="page-title" v-show="true" :style="{ transitionDelay: headerShowDelaySec }">Katalog utworow Olafa</h1>
     </transition>
     
     <ul class="pieces-list" :class="{ 'pieces-list--inactive': mouseIsCalm }">
