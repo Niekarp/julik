@@ -1,0 +1,9 @@
+<template>
+  <div class="welcome-section">
+    <h1 class="welcome-section__header">Julik</h1>
+    <div class="welcome-section__scroll-arrow" v-on:click="scrollToTarget"></div>
+  </div>
+</template>
+
+<script src="./welcome-section.mjs"  module></script>
+<style  src="./welcome-section.scss" scoped lang="scss"></style>

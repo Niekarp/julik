@@ -9,12 +9,12 @@ const { VueLoaderPlugin } = require("vue-loader");
 
 const IS_DEVELOPMENT = true;
 
-const WOLA_SOUNDS_COVERS_CWD = "./src/modules/wola-retro-mode/assets/";
+const WOLA_SOUNDS_COVERS_CWD = "./src/components/pages/wola-retro-page/assets/";
 const DIST_ASSETS_PATH = "./assets/";
 
 module.exports = {
   mode: IS_DEVELOPMENT ? "development" : "production",
-  entry: glob.sync("./src/**/*.mjs"),
+  entry: glob.sync("./src/main.mjs"),
   devtool: "inline-source-map",
   devServer: {
     contentBase: "./dist",

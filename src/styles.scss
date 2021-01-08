@@ -19,6 +19,11 @@ html {
   font-family: "localLato", sans-serif;
   color: ghostwhite;
   cursor: url("./assets/images/dog-cursor.png"), default;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  transition: background 2s;
 }
 
 h1 {
@@ -61,14 +66,62 @@ a:hover {
 
 
 /*=============================================
+=            Classes ||                       =
+=============================================*/
+
+.full-screen {
+  width:  100%;
+  height: 100vh;
+  display: flex;
+}
+
+.dog-background {
+  background-image: url("./assets/images/b1.jpg");
+  background-repeat: no-repeat;
+}
+
+.wola-retro-page {
+  background-color: black;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.horror-html {
+  background-color: black !important;
+  background-image: url("./assets/images/horror-background.png");
+  background-repeat: round;
+  background-size: unset;
+  background-position: unset;
+  color: black !important;
+  font-family: cursive !important;
+  cursor: url("./assets/icons/skull.cur"), default;
+  transition: background-color 1s, color 2s, font-familly 3s, border 4s, border-radius 4s;
+}
+
+/*=====  End of Classes ||             ======*/
+
+
+
+
+
+/*=============================================
 =            Animations ||                    =
 =============================================*/
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+  transition: opacity 2s;
 }
 
 .fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity 2s ease;
+}
+.component-fade-enter, .component-fade-leave-to {
   opacity: 0;
 }
 

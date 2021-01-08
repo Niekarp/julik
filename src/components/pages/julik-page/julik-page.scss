@@ -4,18 +4,69 @@
  *
  */
 
-/*=============================================
-=            Page elements ||                 =
-=============================================*/
+.main-section {
+  position: sticky;
+  inline-size: 450px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  scroll-margin-top: 20px;
+  padding: 0 20px 20px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  opacity: 0;
+  background: linear-gradient(0deg, rgba(56,0,0,0.6990371148459384) 0%, rgba(88,46,19,0.6970763305322129) 65%);
 
-.news-banner-container {
-  inline-size: 100%;
-  padding: 10px 0;
-  margin: 0;
+  &--horror {
+    background: darkred !important;
+    border: 2px solid palegreen !important;
+    border-radius: 130px 130px 0px 0px !important;
+
+    transition: background-color 1s, color 2s, background-color 2s, font-familly 3s, border 4s, border-radius 4s;
+  }
+
+  &__julik-id-photo {
+    display: block;  
+    inline-size: 100%;
+    height: 400px;
+    margin: 0 auto;
+    z-index: 50;
+  }
+
+  &__news-banner {
+    inline-size: 100%;
+    padding: 10px 0;
+    margin: 0;
+  }
 }
 
-/*=====  End of Page elements |      ======*/
+.baba-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  
+  background-image: url("./assets/baba.png");
+  background-position: top;
+  background-attachment: scroll;
+}
 
+.background-container {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -999;
+  background-image: url("./assets/b2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
 
 
 
@@ -23,31 +74,6 @@
 /*=============================================
 =            Hero ||                          =
 =============================================*/
-
-#julik-hero-header {
-	font-size: 16vh;
-	background-color: rgba(0,0,0, 0.15);
-	border-radius: 30px;
-	padding: 0 10vw;
-	margin: 0;
-	margin-bottom: 10vh;
-	text-shadow: none;
-	color: rgba(255, 255, 255, 0.9);
-	font-family: calibri;
-}
-.hero-navigation-arrow {
-  width: 10vh;
-  height: 10vh;
-  position: absolute;
-  bottom: 0;
-  border-color: white;
-  border: solid white;
-  border-width: 0 1vh 1vh 0;
-  margin-bottom: 5vh;
-  cursor: pointer;
-  transform: rotate(45deg);
-}
-
 /*=====  End of Hero ||                ======*/
 
 
@@ -58,12 +84,8 @@
 =            Classes ||                       =
 =============================================*/
 
-.horror-transitions {
-  transition: background-color 1s, color 2s, font-familly 3s, border 4s, border-radius 4s;
-}
-
-.horror-marker::marker {
-  content: "🦴   ";
+.horror-h1 {
+  color: red !important;
 }
 
 /*=====  End of Classes ||             ======*/
@@ -116,12 +138,6 @@
     fadeInOpacity 2s ease-in-out 0s 1,
     scaleIn 2s ease-in-out 0s 1;
 }
-
-@keyframes borderRadiusChange {
-  0% {border-radius: 10px 80px 50px 20px;}
-  100% {border-radius: 70px 20px 120px 70px;}
-}
-
 @keyframes pageBeat {
   0%    {box-shadow: 0px 0px 1px sandybrown;}
   50%   {box-shadow: 0px 0px 50px sandybrown;}
@@ -158,6 +174,19 @@
   100%  {box-shadow: 0px 0px 1px darkslategray;}
 }
 
+.background-lumination-animation {
+  animation-name: lumination;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes lumination {
+  0%   {background-blend-mode: unset;}
+  50%  {background-blend-mode: luminosity;}
+  100% {background-blend-mode: unset;}
+}
+
 /*=====  End of Animations ||          ======*/
 
 
@@ -167,19 +196,6 @@
 /*=============================================
 =            ID's ||                          =
 =============================================*/
-
-#main-section {
-  position: sticky;
-  inline-size: 450px;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  margin-top: 20px;
-  scroll-margin-top: 20px;
-  padding: 0 20px 20px 20px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
-  opacity: 0;
-}
 
 #loading-page {
   width: 100vw;
@@ -214,14 +230,6 @@
 	backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.5);
-}
-
-#page-reset-btn {
-  display: none;
-}
-
-#food-list > li::marker {
-  content: "🐶   ";
 }
 
 /*=====  End of ID's ||                ======*/

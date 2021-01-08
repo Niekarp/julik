@@ -27,7 +27,7 @@ $(() => {
     setTimeout(() => {
       $("#loading-page").delay(1000).fadeOut("slow", function() {
         $("html").addClass("dog-background");
-        $("html").removeClass("loading-page-html"); 
+        $("html").removeClass("overflow-hidden"); 
       });
     }, 200);
   });

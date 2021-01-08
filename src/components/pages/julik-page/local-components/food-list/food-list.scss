@@ -1,0 +1,9 @@
+.food-list { 
+  &__listitem::marker {
+    content: "🐶   ";
+  }
+
+  &__listitem--horror::marker {
+    content: "🦴   ";
+  }
+}

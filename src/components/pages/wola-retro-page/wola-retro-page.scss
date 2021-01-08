@@ -1,0 +1,101 @@
+.page-title {
+}
+
+.pieces-list {
+  transition: opacity 1s;
+
+  &--inactive {
+    opacity: 0.4;
+  }
+
+  &__listitem {
+  }
+
+  &__listitem::after {
+    transition: opacity 1s;
+    opacity: 0;
+  }
+
+  &__text-wrapper:hover::after {
+    content: "  ♫";
+    opacity: 1;
+    transition: 1s;
+  }
+
+  &__listitem::marker {
+    content: "🎸";
+    font-size: 2.4rem;
+  }
+
+  &__text-wrapper {
+    font-size: 2rem;
+    line-height: 2.5;
+    list-style-type: circle;
+    cursor: pointer;
+    clear: both;
+    transition: color 1s;
+
+    &--selected {
+      color: rgb(240, 0, 0);
+    }
+  }
+
+  &__text-wrapper:hover {
+    cursor: pointer;
+    color: rgb(240, 0, 0);
+  }
+
+  &__text-wrapper:hover::after {
+    content: "  ♫";
+    opacity: 1;
+    transition: 1s;
+  }
+}
+
+.video-overlay {
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -999;
+}
+
+.cover-overlay {
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.fade-move {
+  transition: transform 2s;
+}
+
+.fade-overlay-enter-active, .fade-overlay-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-overlay-enter, .fade-overlay-leave-to {
+  opacity: 0;
+}
+
+/* 
+@media (min-aspect-ratio: 16/9) {
+  .wola-retro-video-background {
+      width:100%;
+      height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .wola-retro-video-background { 
+      width:auto;
+      height: 100%;
+  }
+} */
