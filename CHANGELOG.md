@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](///compare/v3.3.3...v4.0.0) (2021-01-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* install Vue
+
+### Features
+
+* add SASS support 74494ef
+* install Vue 9d7a515
+
+
+### Bug Fixes
+
+* **scripts:** createVueComponent path fix cf6a7a3
+
 ### [3.3.3](///compare/v3.3.2...v3.3.3) (2020-12-15)
 
 
