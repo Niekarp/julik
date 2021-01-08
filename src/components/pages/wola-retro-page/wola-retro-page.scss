@@ -1,7 +1,9 @@
 .page-title {
+  font-family: "localXanhMono", serif;
 }
 
 .pieces-list {
+  font-family: "localAmaticSC", sans-serif;
   transition: opacity 1s;
 
   &--inactive {
@@ -9,6 +11,9 @@
   }
 
   &__listitem {
+    font-size: 2rem;
+    line-height: 2.5;
+    list-style-type: circle;
   }
 
   &__listitem::after {
@@ -22,17 +27,14 @@
     transition: 1s;
   }
 
-  &__listitem::marker {
-    content: "🎸";
-    font-size: 2.4rem;
-  }
+  // &__listitem::marker {
+    // content: "🎸";
+    // font-size: 2.4rem;
+  // }
 
   &__text-wrapper {
-    font-size: 2rem;
-    line-height: 2.5;
-    list-style-type: circle;
     cursor: pointer;
-    clear: both;
+    // clear: both;
     transition: color 1s;
 
     &--selected {

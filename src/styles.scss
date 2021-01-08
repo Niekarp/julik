@@ -8,11 +8,6 @@
 =            General ||                       =
 =============================================*/
 
-@font-face {
-  font-family: "localLato";
-  src: url("./assets/fonts/Lato/Lato-Regular.ttf");
-}
-
 html {
   position: relative;
   font-size: 12px;
@@ -101,6 +96,31 @@ a:hover {
 }
 
 /*=====  End of Classes ||             ======*/
+
+
+
+
+
+/*=============================================
+=            Fonts ||                         =
+=============================================*/
+
+@font-face {
+  font-family: "localLato";
+  src: url("./assets/fonts/Lato/Lato-Regular.ttf");
+}
+
+@font-face {
+  font-family: localXanhMono;
+  src: url("./assets/fonts/Xanh_Mono/XanhMono-Regular.ttf");
+}
+
+@font-face {
+  font-family: localAmaticSC;
+  src: url("./assets/fonts/Amatic_SC/AmaticSC-Regular.ttf");
+}
+
+/*=====  End of Fonts |              ======*/
 
 
 
