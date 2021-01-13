@@ -7,7 +7,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require("vue-loader");
 
-const IS_DEVELOPMENT = !true;
+const IS_DEVELOPMENT = true;
 
 const WOLA_SOUNDS_COVERS_CWD = "./src/components/pages/wola-retro-page/assets/";
 const DIST_ASSETS_PATH = "./assets/";
@@ -21,12 +21,13 @@ module.exports = {
   },
   resolve: {
     alias: {
-      Modules:  path.resolve(__dirname, "src/modules/"),
-      Pages:    path.resolve(__dirname, "src/components/pages/"),
-      Assets:   path.resolve(__dirname, "src/assets/"),
-      Services: path.resolve(__dirname, "src/services/"),
-      Utils:    path.resolve(__dirname, "src/utils/"),
-      Src:      path.resolve(__dirname, "src/"),
+      Modules:    path.resolve(__dirname, "src/modules/"),
+      Components: path.resolve(__dirname, "src/components/"),
+      Pages:      path.resolve(__dirname, "src/components/pages/"),
+      Assets:     path.resolve(__dirname, "src/assets/"),
+      Services:   path.resolve(__dirname, "src/services/"),
+      Utils:      path.resolve(__dirname, "src/utils/"),
+      Src:        path.resolve(__dirname, "src/"),
       LocalComponents: "./local-components/"
       // vue$:     "vue/dist/vue.esm.js"
     },
@@ -105,7 +106,7 @@ module.exports = {
         }],
       },
       {
-        test: /\.(mp3|mp4|m4a|wav)$/i,
+        test: /\.(mp3|mp4|m4a|wav|aif)$/i,
         use: [{
           loader: 'file-loader',
           options: {

@@ -14,7 +14,7 @@
         <article>
           <section>
             <a name="julik-photo"></a>
-            <julik-id-photo class="main-section__julik-id-photo" v-on:woof-target-reach="setHorrorMode" v-on:wola-retro-clicked="onWolaRetroClick" :horror-theme="horrorOn" name="julik-img"></julik-id-photo>
+            <julik-id-photo class="main-section__julik-id-photo" v-on:woof-target-reach="setHorrorMode" v-on:wola-retro-clicked="onWolaRetroClick" :horror-theme="horrorOn" name="julik-img" ref="julik"></julik-id-photo>
           </section>
 
           <section>

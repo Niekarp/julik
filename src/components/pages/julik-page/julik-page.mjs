@@ -46,6 +46,7 @@ export default Vue.component("julik-page", {
     },
 
     onMew: function() {
+      this.$refs.julik.woof_(); 
       this.$emit("mew");
     },
 

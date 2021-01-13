@@ -1,10 +1,11 @@
 import fx from 'fireworks'
-import Snowf from 'vue-snowf';
 import bioniUrl from "Assets/icons/bionic.cur";
-
-setTimeout(() => {
-  //snowfall.start()
-}, 10000);
+import fireworksUrl from "./assets/fireworks.wav";
+import colabUrl from "./assets/colab.m4a";
+import Snowf from 'vue-snowf';
+import { restartAnimation } from "Utils/utils.mjs";
+import "./assets/moon.png";
+import "./assets/mosler.png";
 
 export default Vue.component("mew-page", {
   components: {
@@ -14,7 +15,16 @@ export default Vue.component("mew-page", {
     return {
       letterShow: false,
       wishesShow: false,
-      showSnow: false
+      showSnow: false,
+      mewage: 0,
+      moslerAttack: false
+    }
+  },
+  methods: {
+    onPresentClick: function() {
+      if (this.mewage === "🎁") {
+        this.mewage = "🍕";
+      }
     }
   },
   created: function() {
@@ -33,7 +43,22 @@ export default Vue.component("mew-page", {
       vm.wishesShow = true;
     }, 10000)
 
+    const mewageInterval = setInterval(() => {
+      vm.mewage+= 1;
+      if (vm.mewage == 23) {
+        clearInterval(mewageInterval);
+        setTimeout(() => {
+          vm.mewage = "🎁"
+        }, 1000);
+      }
+    }, 200);
+
     setTimeout(() => {
+      (new Audio(fireworksUrl)).play();
+      setTimeout(() => {
+        (new Audio(colabUrl)).play();
+      }, 3000);
+
       setInterval(() => {
         fx.fireworks({
           x: window.innerWidth / 2,
@@ -88,7 +113,19 @@ export default Vue.component("mew-page", {
           colors: ['#cc3333', '#4CAF50', '#81C784']
         });
       }, 3000);
-    }, 11000);
+    }, 11000);    
+    
+    setInterval(function() {
+      restartAnimation(vm.$refs.cloud, "cloud--moving");
+    }, 15000);
+
+    setTimeout(() => {
+      vm.moslerAttack = true;
+      setTimeout(() => {
+        window.location.reload();
+      }, 10000);
+    }, 60000);
+
   },
   mount: function() {
     const vm = this;
