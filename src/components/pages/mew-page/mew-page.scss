@@ -1,0 +1,66 @@
+$letter-rotation: 25deg;
+
+.mew { 
+  display: flex;
+  flex-direction: row;
+  margin-top: 20%;
+  justify-content: center;
+
+  &__letter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.stick {
+  width: 20px;
+  height: 10px;
+  background-color: white;
+
+  transition: all 3s;
+
+  &--right {
+    margin-right: 20px;
+    transform: rotate(-$letter-rotation) scaleY(10);
+  }
+  
+  &--left {
+    margin-right: 20px;
+    transform: rotate($letter-rotation) scaleY(10);
+  }
+
+  &--top {
+    transform: scaleY(10);
+  }
+
+  &--vert1 {
+    transform: scaleX(3) translateY(0px)
+  }
+
+  &--vert2 {
+    transform: scaleX(4) translateY(40px) translateX(-1px);
+    height: 15px;
+  }
+
+  &--vert3 {
+    transform: scaleX(4) translateY(-45px) translateX(-5px);
+    height: 15px;
+  }
+}
+
+.wishes {
+  margin-top: 100px;
+  font-size: 3rem;
+  text-align: center;
+}
+
+#snow-container {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+  left: 0;
+  overflow: hidden;
+}

@@ -22,6 +22,11 @@ export default Vue.component("food-list", {
         return;
       }
 
+      if (extraFoodName === "mew") {
+        this.$emit("mew");
+        return;
+      }
+
       this.foodList.push({ id: this.foodList.length, name: extraFoodName, url: null });
       this.addFoodToLocalStorage_(extraFoodName);
     },

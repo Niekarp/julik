@@ -110,6 +110,6 @@ export default Vue.component("wola-retro-page", {
     this.elVideoOverlay_ = this.$refs.videoOverlay;
     this.elCoverOverlay_ = this.$refs.coverOverlay;
 
-    this.switchPiece(this.tmpPieces_[6]);
+    this.switchPiece(this.tmpPieces_[8]);
   }
 });

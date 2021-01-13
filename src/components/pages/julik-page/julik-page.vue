@@ -26,7 +26,7 @@
           </section>
         
           <section>
-            <food-list ref="foodList" :horror-theme="horrorOn"></food-list>
+            <food-list ref="foodList" :horror-theme="horrorOn" v-on:mew="onMew"></food-list>
           </section>
 
           <section>

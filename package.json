@@ -32,8 +32,11 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@erikwatson/snowfall": "^3.0.4",
+    "fireworks": "^2.2.6",
     "jquery": "^3.5.1",
-    "vue": "^2.6.12"
+    "vue": "^2.6.12",
+    "vue-snowf": "0.0.2"
   },
   "lastReleaseDate": "Jan. 8"
 }

@@ -72,6 +72,8 @@ a:hover {
 
 .dog-background {
   background-image: url("./assets/images/b1.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 

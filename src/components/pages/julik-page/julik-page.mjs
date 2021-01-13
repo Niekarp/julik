@@ -45,6 +45,10 @@ export default Vue.component("julik-page", {
       this.$emit("wola-retro");
     },
 
+    onMew: function() {
+      this.$emit("mew");
+    },
+
     resetFoodListAndTurnHorroOff: function() {
       // TODO: add animated tossing of foodList items
       this.$refs.foodList.reseetFoodList();

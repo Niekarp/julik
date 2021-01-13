@@ -7,7 +7,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require("vue-loader");
 
-const IS_DEVELOPMENT = true;
+const IS_DEVELOPMENT = !true;
 
 const WOLA_SOUNDS_COVERS_CWD = "./src/components/pages/wola-retro-page/assets/";
 const DIST_ASSETS_PATH = "./assets/";
