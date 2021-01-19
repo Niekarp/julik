@@ -3,7 +3,7 @@
 
   <div class="moon">
     <transition name="fade">
-        <img src="/assets/moon.png" class="moon__img" v-if="wishesShow"/>
+        <img :src="moonUrl_" class="moon__img" v-if="wishesShow"/>
     </transition>
   </div>
 
@@ -47,7 +47,7 @@
   </transition>
 
    <transition name="fade">
-    <img src="/assets/mosler.png" class="mosler" :class="{'mosler--attack': moslerAttack }" v-if="wishesShow" ref="mosler" />
+    <img :src="moslerUrl_" class="mosler" :class="{'mosler--attack': moslerAttack }" v-if="wishesShow" ref="mosler" />
   </transition>
 
   <transition name="fade">

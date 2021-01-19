@@ -4,8 +4,8 @@ import fireworksUrl from "./assets/fireworks.wav";
 import colabUrl from "./assets/colab.m4a";
 import Snowf from 'vue-snowf';
 import { restartAnimation } from "Utils/utils.mjs";
-import "./assets/moon.png";
-import "./assets/mosler.png";
+import moonUrl from "./assets/moon.png";
+import moslerUrl from "./assets/mosler.png";
 
 export default Vue.component("mew-page", {
   components: {
@@ -17,7 +17,9 @@ export default Vue.component("mew-page", {
       wishesShow: false,
       showSnow: false,
       mewage: 0,
-      moslerAttack: false
+      moslerAttack: false,
+      moslerUrl_: moslerUrl,
+      moonUrl_: moonUrl
     }
   },
   methods: {
