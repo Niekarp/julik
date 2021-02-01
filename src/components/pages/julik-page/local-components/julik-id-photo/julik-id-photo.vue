@@ -13,5 +13,5 @@
   </div>
 </template>
 
-<script src="./julik-id-photo.mjs"  module></script>
+<script src="./julik-id-photo.ts"   module lang="ts"></script>
 <style  src="./julik-id-photo.scss" scoped lang="scss"></style>

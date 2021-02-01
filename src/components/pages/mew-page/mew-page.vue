@@ -31,7 +31,7 @@
       <div v-show="wishesShow" class="wishes">🎉 Wszystkiego najlepszego II: 🎉</div>
     </transition>
     <div class="present" :class="{ rotate: wishesShow }">
-      <span v-on:click="onPresentClick">{{mewage}}</span>
+      <span v-on:click="onPresentClick">{{mewPresent === "" ? mewage : mewPresent}}</span>
     </div>
 
   <transition name="fade">
@@ -69,5 +69,5 @@
   </div>
 </template>
 
-<script src="./mew-page.mjs"  module></script>
+<script src="./mew-page.ts"   module lang="ts"></script>
 <style  src="./mew-page.scss" scoped lang="scss"></style>

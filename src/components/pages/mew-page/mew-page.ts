@@ -1,35 +1,36 @@
+import Vue from "vue";
 import fx from 'fireworks'
-import bioniUrl from "Assets/icons/bionic.cur";
+import bioniUrl from "./../../../assets/icons/bionic.cur";
 import fireworksUrl from "./assets/fireworks.wav";
 import colabUrl from "./assets/colab.m4a";
 import Snowf from 'vue-snowf';
-import { restartAnimation } from "Utils/utils.mjs";
+import { restartAnimation } from "./../../../utils/utils";
 import moonUrl from "./assets/moon.png";
 import moslerUrl from "./assets/mosler.png";
+import Component from 'vue-class-component';
 
-export default Vue.component("mew-page", {
+@Component({
   components: {
     Snowf
-  },
-  data: function() {
-    return {
-      letterShow: false,
-      wishesShow: false,
-      showSnow: false,
-      mewage: 0,
-      moslerAttack: false,
-      moslerUrl_: moslerUrl,
-      moonUrl_: moonUrl
+  }
+})
+export default class MewPage extends Vue {
+  letterShow = false;
+  wishesShow = false;
+  showSnow = false;
+  mewage = 0;
+  mewPresent = ""
+  moslerAttack = false;
+  moslerUrl_ = moslerUrl;
+  moonUrl_ = moonUrl;
+
+  onPresentClick() {
+    if (this.mewage === 23 && this.mewPresent === "🎁") {
+      this.mewPresent = "🍕";
     }
-  },
-  methods: {
-    onPresentClick: function() {
-      if (this.mewage === "🎁") {
-        this.mewage = "🍕";
-      }
-    }
-  },
-  created: function() {
+  }
+
+  created() {
     const vm = this;
 
     $(document.documentElement).css("background-color", "black");
@@ -50,7 +51,7 @@ export default Vue.component("mew-page", {
       if (vm.mewage == 23) {
         clearInterval(mewageInterval);
         setTimeout(() => {
-          vm.mewage = "🎁"
+          vm.mewPresent = "🎁"
         }, 1000);
       }
     }, 200);
@@ -62,7 +63,7 @@ export default Vue.component("mew-page", {
       }, 3000);
 
       setInterval(() => {
-        fx.fireworks({
+        fx({
           x: window.innerWidth / 2,
           y: window.innerHeight / 2,
           canvasWidth: window.innerWidth,
@@ -72,7 +73,7 @@ export default Vue.component("mew-page", {
       }, 5000);
 
       setInterval(() => {
-        fx.fireworks({
+        fx({
           count: 30,
           x: window.innerWidth / 3,
           y: window.innerHeight / 2,
@@ -83,7 +84,7 @@ export default Vue.component("mew-page", {
       }, 6000);
 
       setInterval(() => {
-        fx.fireworks({
+        (fx as any)({
           count: 5,
           x: window.innerWidth / 2,
           y: window.innerHeight / 2,
@@ -94,7 +95,7 @@ export default Vue.component("mew-page", {
       }, 8000);
 
       setInterval(() => {
-        fx.fireworks({
+        fx({
           count: 18,
           x: window.innerWidth / 3,
           y: window.innerHeight / 2,
@@ -105,9 +106,8 @@ export default Vue.component("mew-page", {
       }, 10000);
 
       setInterval(() => {
-        fx.fireworks({
+        fx({
           count: 20,
-          interval: 5000,
           x: window.innerWidth,
           y: window.innerHeight / 2,
           canvasWidth: window.innerWidth,
@@ -118,7 +118,7 @@ export default Vue.component("mew-page", {
     }, 11000);    
     
     setInterval(function() {
-      restartAnimation(vm.$refs.cloud, "cloud--moving");
+      restartAnimation(vm.$refs.cloud as any, "cloud--moving");
     }, 15000);
 
     setTimeout(() => {
@@ -128,8 +128,9 @@ export default Vue.component("mew-page", {
       }, 10000);
     }, 60000);
 
-  },
-  mount: function() {
+  }
+  
+  mount() {
     const vm = this;
 
 
@@ -137,4 +138,4 @@ export default Vue.component("mew-page", {
       vm.showSnow = true
     }, 10000);
   }
-});
+}

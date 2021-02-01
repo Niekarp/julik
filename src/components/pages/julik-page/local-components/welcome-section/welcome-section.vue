@@ -5,5 +5,5 @@
   </div>
 </template>
 
-<script src="./welcome-section.mjs"  module></script>
+<script src="./welcome-section.ts"   module lang="ts"></script>
 <style  src="./welcome-section.scss" scoped lang="scss"></style>

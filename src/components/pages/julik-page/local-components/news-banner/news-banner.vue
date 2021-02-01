@@ -4,5 +4,5 @@
   </div>
 </template>
 
-<script src="./news-banner.mjs"  module></script>
+<script src="./news-banner.ts"   module lang="ts"></script>
 <style  src="./news-banner.scss" scoped lang="scss"></style>

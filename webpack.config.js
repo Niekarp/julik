@@ -14,10 +14,11 @@ const DIST_ASSETS_PATH = "./assets/";
 
 module.exports = {
   mode: IS_DEVELOPMENT ? "development" : "production",
-  entry: glob.sync("./src/main.mjs"),
+  entry: glob.sync("./src/main.ts"),
   devtool: "inline-source-map",
   devServer: {
-    contentBase: "./dist",
+    // TODO: consider using contentBase to seve assets
+    publicPath: "/",
   },
   resolve: {
     alias: {
@@ -62,8 +63,24 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        use: "vue-loader"
+        use: "vue-loader",
+        // ["vue-loader", {
+        //   // options: { esModule: true }
+        // }],
       },
+      {
+        test: /\.tsx?$/,
+        use: // "ts-loader",
+        [{
+          loader: 'ts-loader',
+          options: {
+            appendTsSuffixTo: [/\.vue$/] 
+            // transpileOnly: true
+          }// { appendTsSuffixTo: [/\.vue$/] },
+        }],
+        exclude: /node_modules/,
+      },
+
       {
         test: /\.html$/i,
         loader: 'html-loader',
@@ -124,6 +141,9 @@ module.exports = {
         }],
       },
     ],
+  },
+  resolve: {
+    extensions: [ '.ts', '.tsx', '.js', ".vue" ],
   },
   output: {
     filename: "bundle.js",

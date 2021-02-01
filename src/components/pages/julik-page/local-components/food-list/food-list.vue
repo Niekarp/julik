@@ -12,5 +12,5 @@
   </div>
 </template>
 
-<script src="./food-list.mjs"  module></script>
+<script src="./food-list.ts"   module lang="ts"></script>
 <style  src="./food-list.scss" scoped lang="scss"></style>

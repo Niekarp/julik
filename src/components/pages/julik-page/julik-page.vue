@@ -77,5 +77,5 @@
   </div>
 </template>
 
-<script src="./julik-page.mjs"  module></script>
+<script src="./julik-page.ts"  module></script>
 <style  src="./julik-page.scss" scoped lang="scss"></style>

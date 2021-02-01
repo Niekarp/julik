@@ -38,5 +38,5 @@
   </div>
 </template>
 
-<script src="./wola-retro-page.mjs"  module></script>
+<script src="./wola-retro-page.ts"   module lang="ts"></script>
 <style  src="./wola-retro-page.scss" scoped lang="scss"></style>

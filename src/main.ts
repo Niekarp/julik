@@ -7,12 +7,16 @@
 import "./index.html";
 import "./styles/normalize.css";
 import "./styles.scss";
-import { getAppVersion, getLastUpdateDate } from "Utils/utils.mjs";
 
-import App from './app.vue';
+// TODO: change to alias path to Utils
+import { getAppVersion, getLastUpdateDate } from "./utils/utils";
+
+import Vue from "vue";
+import App from "./app.vue";
+import { CreateElement } from "vue/types/umd";
 
 new Vue({
-  render: (h) => h(App),
+  render: (h: CreateElement) => h(App),
 }).$mount("#app");
 
 $("#version-string").text(`v. ${getAppVersion()} (${getLastUpdateDate()})`);

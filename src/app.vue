@@ -6,35 +6,47 @@
   </div>
 </template>
 
-<script>
-import "Pages/julik-page/julik-page.vue";
-import "Pages/wola-retro-page/wola-retro-page.vue";
-import "Pages/mew-page/mew-page.vue";
+<script lang="ts">
+import Vue from "vue";
+import Component from "vue-class-component";
+import JulikPage from "./components/pages/julik-page/julik-page.vue";
+import WolaRetroPage from "./components/pages/wola-retro-page/wola-retro-page.vue";
+import MewPage from "./components/pages/mew-page/mew-page.vue";
+import TestPage from "./components/pages/test-page/test-page.vue";
 
-export default {
-  data: function() {
-    return {
-      currentPageName: 1 ? "julik-page" : (0 ? "wola-retro-page" : "mew-page")
-    }
+@Component({
+  components: {
+    JulikPage,
+    WolaRetroPage,
+    MewPage,
+    TestPage,
   },
-  methods: {
-    navigateToWolaRetro: function() {
-      this.currentPageName = "wola-retro-page";
+})
+export default class App extends Vue {  
+  public currentPageName: string;
 
-      $(document.documentElement).removeClass();
-      $(document.body).removeClass();
-
-      // $(document.documentElement).addClass("wola-retro-page");
-    },
-
-    mewMew: function() {
-     this.currentPageName = "mew-page"; 
-
-      $(document.documentElement).removeClass();
-      $(document.body).removeClass();
-    }
+  constructor() {
+    super();
+    this.currentPageName = "julik-page";
   }
-};
+  // 1 ? "julik-page" : (0 ? "wola-retro-page" : "mew-page")
+
+  navigateToWolaRetro() {
+    this.currentPageName = "wola-retro-page";
+
+    $(document.documentElement).removeClass();
+    $(document.body).removeClass();
+
+    // $(document.documentElement).addClass("wola-retro-page");
+  }
+
+  mewMew() {
+    this.currentPageName = "mew-page"; 
+
+    $(document.documentElement).removeClass();
+    $(document.body).removeClass();
+  }
+}
 </script>
 
 <style></style>
