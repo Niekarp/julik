@@ -9,17 +9,17 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import JulikPage from "./components/pages/julik-page/julik-page.vue";
-import WolaRetroPage from "./components/pages/wola-retro-page/wola-retro-page.vue";
-import MewPage from "./components/pages/mew-page/mew-page.vue";
-import TestPage from "./components/pages/test-page/test-page.vue";
+import JulikPage from "@Pages/julik-page/julik-page.vue";
+import WolaRetroPage from "@Pages/wola-retro-page/wola-retro-page.vue";
+import MewPage from "@Pages/mew-page/mew-page.vue";
+// import TestPage from "@Pages/test-page/test-page.vue";
 
 @Component({
   components: {
     JulikPage,
     WolaRetroPage,
     MewPage,
-    TestPage,
+    // TestPage,
   },
 })
 export default class App extends Vue {  
@@ -27,9 +27,8 @@ export default class App extends Vue {
 
   constructor() {
     super();
-    this.currentPageName = "julik-page";
+    this.currentPageName = 1 ? "julik-page" : (0 ? "wola-retro-page" : "mew-page");
   }
-  // 1 ? "julik-page" : (0 ? "wola-retro-page" : "mew-page")
 
   navigateToWolaRetro() {
     this.currentPageName = "wola-retro-page";
@@ -37,7 +36,7 @@ export default class App extends Vue {
     $(document.documentElement).removeClass();
     $(document.body).removeClass();
 
-    // $(document.documentElement).addClass("wola-retro-page");
+    $(document.documentElement).addClass("wola-retro-page");
   }
 
   mewMew() {

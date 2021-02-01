@@ -26,6 +26,7 @@
     "standard-version": "^9.0.0",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.14",
+    "tsconfig-paths-webpack-plugin": "^3.3.0",
     "typescript": "^4.1.3",
     "vue-loader": "^15.9.6",
     "vue-style-loader": "^4.1.2",
@@ -43,5 +44,5 @@
     "vue-property-decorator": "^9.1.2",
     "vue-snowf": "0.0.2"
   },
-  "lastReleaseDate": "Jan. 13"
+  "lastReleaseDate": "Feb. 1"
 }

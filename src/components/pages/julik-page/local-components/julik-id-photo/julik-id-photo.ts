@@ -2,7 +2,7 @@ import NORMAL_JULIK_IMG_URL from "./assets/julik.jpg";
 import NORMAL_BARK_URL from "./assets/bark.wav";
 import HORROR_BARK_URL from "./assets/bark-horror.mp3";
 import HORROR_JULIK_URL from "./assets/julik-horror.png";
-import { restartAnimation } from "./../../../../../utils/utils";
+import { restartAnimation } from "@/utils/utils";
 import Vue from "vue";
 import { Component, Prop, Watch } from "vue-property-decorator";
 

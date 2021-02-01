@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require("vue-loader");
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const IS_DEVELOPMENT = true;
 
@@ -22,16 +23,18 @@ module.exports = {
   },
   resolve: {
     alias: {
-      Modules:    path.resolve(__dirname, "src/modules/"),
-      Components: path.resolve(__dirname, "src/components/"),
-      Pages:      path.resolve(__dirname, "src/components/pages/"),
-      Assets:     path.resolve(__dirname, "src/assets/"),
-      Services:   path.resolve(__dirname, "src/services/"),
-      Utils:      path.resolve(__dirname, "src/utils/"),
-      Src:        path.resolve(__dirname, "src/"),
-      LocalComponents: "./local-components/"
+      "@":           path.resolve(__dirname, "src/"),
+      "@Modules":    path.resolve(__dirname, "src/modules/"),
+      "@Components": path.resolve(__dirname, "src/components/"),
+      "@Pages":      path.resolve(__dirname, "src/components/pages"),
+      "@Assets":     path.resolve(__dirname, "src/assets/"),
+      "@Services":   path.resolve(__dirname, "src/services/"),
+      "@Utils":      path.resolve(__dirname, "src/utils/"),
+      "@LocalComponents": "./local-components/"
       // vue$:     "vue/dist/vue.esm.js"
     },
+    plugins: [new TsconfigPathsPlugin()],
+    extensions: [ '.ts', '.tsx', '.js', ".vue" ],
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -141,9 +144,6 @@ module.exports = {
         }],
       },
     ],
-  },
-  resolve: {
-    extensions: [ '.ts', '.tsx', '.js', ".vue" ],
   },
   output: {
     filename: "bundle.js",

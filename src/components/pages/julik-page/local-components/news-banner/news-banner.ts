@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Component from "vue-class-component";
-import { restartAnimation } from "../../../../../utils/utils";
+import { restartAnimation } from "@/utils/utils";
 
 @Component
 export default class NewsBanner extends Vue {

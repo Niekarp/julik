@@ -1,10 +1,10 @@
 import Vue from "vue";
 import fx from 'fireworks'
-import bioniUrl from "./../../../assets/icons/bionic.cur";
+import bioniUrl from "@Assets/icons/bionic.cur";
 import fireworksUrl from "./assets/fireworks.wav";
 import colabUrl from "./assets/colab.m4a";
 import Snowf from 'vue-snowf';
-import { restartAnimation } from "./../../../utils/utils";
+import { restartAnimation } from "@/utils/utils";
 import moonUrl from "./assets/moon.png";
 import moslerUrl from "./assets/mosler.png";
 import Component from 'vue-class-component';

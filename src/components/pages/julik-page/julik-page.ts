@@ -1,10 +1,10 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 
-import WelcomeSection from "./local-components/welcome-section/welcome-section.vue";
-import NewsBanner from "./local-components/news-banner/news-banner.vue";
-import JulikIdPhoto from "./local-components/julik-id-photo/julik-id-photo.vue";
-import FoodList from "./local-components/food-list/food-list.vue";
+import WelcomeSection from "@LocalComponents/welcome-section/welcome-section.vue";
+import NewsBanner from "@LocalComponents/news-banner/news-banner.vue";
+import JulikIdPhoto from "@LocalComponents/julik-id-photo/julik-id-photo.vue";
+import FoodList from "@LocalComponents/food-list/food-list.vue";
 
 // julik-page"
 

@@ -3,17 +3,15 @@
 // TODO: make main section scale better when zooming out
 // TODO: add juik kosmiczny kolor
 // TODO: improve pageBeat animation performance
-// TODO: consider adding text hiding when there is no mouse movement in wola retro
 import "./index.html";
 import "./styles/normalize.css";
 import "./styles.scss";
 
-// TODO: change to alias path to Utils
-import { getAppVersion, getLastUpdateDate } from "./utils/utils";
-
 import Vue from "vue";
 import App from "./app.vue";
 import { CreateElement } from "vue/types/umd";
+
+import { getAppVersion, getLastUpdateDate } from "@/utils/utils";
 
 new Vue({
   render: (h: CreateElement) => h(App),

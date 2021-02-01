@@ -10,11 +10,13 @@
     "experimentalDecorators": true,
     "sourceMap": true,
     "resolveJsonModule": true,
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "paths": {
-        "Utils": ["utils"],
-     },
+      "@/*": ["*"]
+    }
   },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "src/utilities/*"],
   "typeAcquisition": {
     "include": [
         "jquery"
