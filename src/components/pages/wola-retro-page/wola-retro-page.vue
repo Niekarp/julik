@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition appear name="fade">
-      <h1 class="page-title" v-show="true" :style="{ transitionDelay: headerShowDelaySec }">Katalog utworow Olafa</h1>
+      <h1 class="page-title" v-show="true" :style="{ transitionDelay: headerShowDelaySec }">Katalog utworow {{artist === "Olaf" ? "Olafa" : "Oloa"}}</h1>
     </transition>
     
     <ul class="pieces-list" :class="{ 'pieces-list--inactive': mouseIsCalm }">
@@ -11,11 +11,14 @@
           <span class="pieces-list__text-wrapper"
                 :class="{ 'pieces-list__text-wrapper--selected': piece === selectedPiece }"
                 v-on:click="switchPiece(piece)">
-            {{ `OWV ${idx + 1} - ${piece.name}` }}
+            <span v-if="artist === 'Olaf'">{{ `OWV ${idx + 1} - ${piece.name}` }}</span>
+            <span v-else>{{ `OLO ${idx + 1} - ${piece.name}` }}</span>
           </span>
         </li>
       </transition-group>
     </ul>
+
+    <div class="switch-player-button" v-on:click="switchPlayer">></div>
 
     <transition name="fade-overlay">
       <video

@@ -31,7 +31,6 @@ module.exports = {
       "@Services":   path.resolve(__dirname, "src/services/"),
       "@Utils":      path.resolve(__dirname, "src/utils/"),
       "@LocalComponents": "./local-components/"
-      // vue$:     "vue/dist/vue.esm.js"
     },
     plugins: [new TsconfigPathsPlugin()],
     extensions: [ '.ts', '.tsx', '.js', ".vue" ],
@@ -43,21 +42,24 @@ module.exports = {
       template: './src/index.html',
     }),
     new webpack.ProvidePlugin({
-      $: "jquery",
+      $:      "jquery",
       jQuery: "jquery",
-      Vue: [require.resolve('vue/dist/vue.esm.js'), "default"]
     }),
     new webpack.DefinePlugin({
       LAST_UPDATE_DATE: JSON.stringify(require("./package.json").lastReleaseDate),
       DEV: JSON.stringify(IS_DEVELOPMENT),
       ASSETS_PATH: JSON.stringify(DIST_ASSETS_PATH),
-      WOLA_SOUNDS: JSON.stringify(glob.sync("./*", { cwd: WOLA_SOUNDS_COVERS_CWD + "sounds/" })),
-      WOLA_COVERS: JSON.stringify(glob.sync("./*", { cwd: WOLA_SOUNDS_COVERS_CWD + "covers/" })),
+      WOLA_SOUNDS_OLAF: JSON.stringify(glob.sync("./*", { cwd: WOLA_SOUNDS_COVERS_CWD + "olaf/" + "sounds/" })),
+      WOLA_COVERS_OLAF: JSON.stringify(glob.sync("./*", { cwd: WOLA_SOUNDS_COVERS_CWD + "olaf/" + "covers/" })),
+      WOLA_SOUNDS_OLO:  JSON.stringify(glob.sync("./*", { cwd: WOLA_SOUNDS_COVERS_CWD + "olo/"  + "sounds/" })),
+      WOLA_COVERS_OLO:  JSON.stringify(glob.sync("./*", { cwd: WOLA_SOUNDS_COVERS_CWD + "olo/"  + "covers/" })),
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: WOLA_SOUNDS_COVERS_CWD + "sounds/", to: DIST_ASSETS_PATH },
-        { from: WOLA_SOUNDS_COVERS_CWD + "covers/", to: DIST_ASSETS_PATH },
+        { from: WOLA_SOUNDS_COVERS_CWD + "olaf/" + "sounds/", to: DIST_ASSETS_PATH },
+        { from: WOLA_SOUNDS_COVERS_CWD + "olaf/" + "covers/", to: DIST_ASSETS_PATH },
+        { from: WOLA_SOUNDS_COVERS_CWD + "olo/"  + "sounds/", to: DIST_ASSETS_PATH },
+        { from: WOLA_SOUNDS_COVERS_CWD + "olo/"  + "covers/", to: DIST_ASSETS_PATH },
       ],
     }),
     new VueLoaderPlugin(),
@@ -67,23 +69,15 @@ module.exports = {
       {
         test: /\.vue$/,
         use: "vue-loader",
-        // ["vue-loader", {
-        //   // options: { esModule: true }
-        // }],
       },
       {
         test: /\.tsx?$/,
-        use: // "ts-loader",
-        [{
+        use: [{
           loader: 'ts-loader',
-          options: {
-            appendTsSuffixTo: [/\.vue$/] 
-            // transpileOnly: true
-          }// { appendTsSuffixTo: [/\.vue$/] },
+          options: { appendTsSuffixTo: [/\.vue$/] }
         }],
         exclude: /node_modules/,
       },
-
       {
         test: /\.html$/i,
         loader: 'html-loader',
@@ -91,11 +85,8 @@ module.exports = {
           attributes: {
             list: [
               {
-                // Tag name
                 tag: 'link',
-                // Attribute name
                 attribute: 'href',
-                // Type of processing, can be `src` or `scrset`
                 type: 'src',
               },
               {
@@ -108,13 +99,8 @@ module.exports = {
         }
       },
       {
-        // test: /\.css$/i,
-        // use: [MiniCssExtractPlugin.loader, "css-loader"],
         test: /\.(scss|css)$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
-        // use: ['MiniCssExtractPlugin.loader', 'css-loader', 'sass-loader'],
-        // use: ['style-loader', 'css-loader', 'sass-loader'],
-        // use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|svg|jpg|jpeg|cur|gif|ico)$/i,

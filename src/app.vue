@@ -9,9 +9,10 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-import JulikPage from "@Pages/julik-page/julik-page.vue";
+
+import JulikPage     from "@Pages/julik-page/julik-page.vue";
 import WolaRetroPage from "@Pages/wola-retro-page/wola-retro-page.vue";
-import MewPage from "@Pages/mew-page/mew-page.vue";
+import MewPage       from "@Pages/mew-page/mew-page.vue";
 // import TestPage from "@Pages/test-page/test-page.vue";
 
 @Component({
@@ -22,28 +23,31 @@ import MewPage from "@Pages/mew-page/mew-page.vue";
     // TestPage,
   },
 })
-export default class App extends Vue {  
+export default class App extends Vue {
   public currentPageName: string;
 
   constructor() {
     super();
-    this.currentPageName = 1 ? "julik-page" : (0 ? "wola-retro-page" : "mew-page");
+    this.currentPageName = 1 ? "julik-page" : (1 ? "wola-retro-page" : "mew-page");
   }
 
-  navigateToWolaRetro() {
+  public navigateToWolaRetro() {
     this.currentPageName = "wola-retro-page";
-
-    $(document.documentElement).removeClass();
-    $(document.body).removeClass();
-
+    
+    this.removeClassesAndEvents();
     $(document.documentElement).addClass("wola-retro-page");
   }
 
-  mewMew() {
+  public mewMew() {
     this.currentPageName = "mew-page"; 
 
+    this.removeClassesAndEvents();
+  }
+
+  private removeClassesAndEvents() {
     $(document.documentElement).removeClass();
     $(document.body).removeClass();
+    $(document).off();
   }
 }
 </script>

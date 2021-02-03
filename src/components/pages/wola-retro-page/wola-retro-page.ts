@@ -19,42 +19,36 @@ export default class WolaRetroPage extends Vue {
   public firstPieceShowDelaySec = 6;
   public pieceShowDelaySec = 0.2;
 
+  public piecesOlaf: any[] = [];
+  public piecesOlo: any[] = [];
   public pieces: any[] = [];
   public tmpPieces: any[] = [];
+  public piecesLoaded = false;
+  public artist = "Olaf";
 
   private created() {
-    const vm = this;
-
     $(document.documentElement).css("background-color", "black");
     $(document.documentElement).css("cursor", "default");
 
     $(document).on("mousemove", () => {
-      vm.mouseMovedRecently = true;
-      vm.mouseIsCalm = false;
+      // set flags that cursor moved
+      this.mouseMovedRecently = true;
+      this.mouseIsCalm = false;
     });
 
     setInterval(() => {
-      if (!vm.mouseMovedRecently) {
-        vm.mouseIsCalm = true;
+      // periodically check if cursor moved within some time window
+      if (!this.mouseMovedRecently) {
+        this.mouseIsCalm = true;
       }
-      vm.mouseMovedRecently = false;
-    }, vm.TEXT_INACTIVATE_INTERVAL);
+      this.mouseMovedRecently = false;
+    }, this.TEXT_INACTIVATE_INTERVAL);
 
-    vm.tmpPieces = vm.getPieces_();
+    this.piecesOlaf = this.getPieces(WOLA_SOUNDS_OLAF, WOLA_COVERS_OLAF);
+    this.piecesOlo  = this.getPieces(WOLA_SOUNDS_OLO,  WOLA_COVERS_OLO);
+    this.tmpPieces  = this.piecesOlaf;
 
-    setTimeout(() => {
-      let idx = 0;
-
-      const addPieceInterval = setInterval(() => {
-        if (idx >= vm.tmpPieces.length) {
-          clearInterval(addPieceInterval);
-        }
-        else {
-          vm.pieces.push(vm.tmpPieces[idx++]);
-        }
-      }, vm.pieceShowDelaySec * 1000);
-
-    }, vm.firstPieceShowDelaySec * 1000);
+    this.showPiecesOneByOne(this.tmpPieces, this.firstPieceShowDelaySec * 1000);
   }
 
   private mounted() {
@@ -64,20 +58,36 @@ export default class WolaRetroPage extends Vue {
     this.switchPiece(this.tmpPieces[8]);
   }
 
+  public switchPlayer() {
+    if (!this.piecesLoaded) return;
+
+    this.blanketDownMediaOff(500).then(_ => {
+      this.hidePiecesOneByOne(this.pieces).then(_ => {
+        if (this.artist === "Olaf") {
+          this.artist = "Olo";
+          (new Audio("./assets/bark.wav")).play();
+  
+          this.showPiecesOneByOne(this.piecesOlo, 1500).then(_ => {
+            this.switchPiece(this.pieces[2]);
+          });
+        } else {
+          this.artist = "Olaf";
+          this.showPiecesOneByOne(this.piecesOlaf, 1500).then(_ => {
+            this.switchPiece(this.pieces[8]);
+          });
+        }
+      });
+    });
+  }
+
   public switchPiece(newPiece: any) {
     const ASSETS_URL = ASSETS_PATH;
     const SOUND_URL = `${ASSETS_URL}${newPiece.name}.${newPiece.ext}`.normalize("NFC");
     const COVER_URL = `${ASSETS_URL}${newPiece.cover}`.normalize("NFC");
 
-    // pause media
-    this.elVideoOverlay.pause();
-    this.audio_.pause();
+    this.selectedPiece = newPiece;   
 
-    this.selectedPiece = newPiece;
-
-    // fade out-in
-    this.blanket = true;
-    setTimeout(() => {
+    this.blanketDownMediaOff(this.blanketDownTimeSec * 1000).then(_ => {
       if (COVER_URL !== ASSETS_URL) {
         // new piece is audio-only
         $(this.elCoverOverlay).css("background-image", `url("${COVER_URL}")`);
@@ -89,13 +99,69 @@ export default class WolaRetroPage extends Vue {
         this.elVideoOverlay.play();
       }
       this.blanket = false;
-    }, this.blanketDownTimeSec * 1000);
+    })
   }
 
-  private getPieces_() {
+  private blanketDownMediaOff(duration: number) {
+    // pause media
+    this.elVideoOverlay.pause();
+    this.audio_.pause();
+
+    // fade out-in
+    this.blanket = true;
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => { resolve(null); }, duration);
+    });
+  }
+
+  private showPiecesOneByOne(piecesToShow: any[], firstPieceDelay: number) {
+    this.piecesLoaded = false;
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // insert pieces one by one with pauses in between
+        let idx = 0;
+  
+        const addPieceInterval = setInterval(() => {
+          if (idx >= piecesToShow.length) {
+            clearInterval(addPieceInterval);
+            this.piecesLoaded = true;
+            resolve(null);
+          }
+          else {
+            this.pieces.push(piecesToShow[idx++]);
+          }
+        }, this.pieceShowDelaySec * 1000);
+  
+      }, firstPieceDelay);
+    });
+  }
+
+  private hidePiecesOneByOne(piecesToHide: any[]) {
+    this.piecesLoaded = false;
+
+    return new Promise((resolve, reject) => {
+      // insert pieces one by one with pauses in between
+      let idx = 0;
+
+      const removePieceInterval = setInterval(() => {
+        if (piecesToHide.length) {
+          piecesToHide.pop();
+        }
+        else {
+          clearInterval(removePieceInterval);
+          this.piecesLoaded = true;
+          resolve(null);
+        }
+      }, this.pieceShowDelaySec * 1000);
+    });
+  }
+
+  private getPieces(soundsUrl: string[], coversUrl: string[]) {
   // TODO: maybe consider switching to using require.context
   // https://stackoverflow.com/questions/54059179/what-is-require-context
-  return WOLA_SOUNDS
+  return soundsUrl
     .map((soundUrl, idx) => {
       const splitUrl = soundUrl.split(".");
       return {
@@ -105,9 +171,9 @@ export default class WolaRetroPage extends Vue {
       };
     })
     .map(function addCover(piece) {
-      const coverIdx = WOLA_COVERS.findIndex(coverUrl => coverUrl.includes(piece.name));
+      const coverIdx = coversUrl.findIndex(coverUrl => coverUrl.includes(piece.name));
       if (coverIdx != -1) {
-        piece.cover = WOLA_COVERS[coverIdx].substring(2);
+        piece.cover = coversUrl[coverIdx].substring(2);
       } else {
         piece.cover = "";
       }

@@ -21,6 +21,13 @@
     background: darkred !important;
     border: 2px solid palegreen !important;
     border-radius: 130px 130px 0px 0px !important;
+    text-shadow: 0 0 20px #fefcc9,
+                10px -10px 30px #feec85,
+                -20px -20px 40px #ffae34,
+                20px -30px 35px #ec760c,
+                -20px -40px 40px #cd4606,
+                0 -50px 65px #973716,
+                10px -70px 70px #451b0e;
 
     transition: background-color 1s, color 2s, background-color 2s, font-familly 3s, border 4s, border-radius 4s;
   }

@@ -18,10 +18,17 @@
           </section>
 
           <section>
-            <h2> {{ julikIntroductionTitle }} </h2>
+            <h2>
+              <span v-if="!horrorOn">Ogółem</span>
+              <span v-else>Abstrakt</span>
+            </h2>
             <p>
-              <span v-if="!horrorOn"><a href="#julik-photo"> Julik</a> {{ julikIntroduction }}</span>
-              <span v-else>{{ julikIntroduction }}</span>
+              <span v-if="!horrorOn">
+                <a href="#julik-photo"> Julik</a> został przywieziony z Hiszpanii i czasem chodzi do fryzjera
+              </span>
+              <span v-else>
+                Julik został przywieziony z Piekła i czasem chodzi do egzorcysty
+              </span>
             </p>
           </section>
         
@@ -31,7 +38,10 @@
 
           <section>
             <h2>Zachowanie</h2>
-            <p>{{ julikBehaviour }}</p>
+            <p>
+              <span v-if="!horrorOn">Julik szczeka na swoje odbicie w lustrze i biega wtedy po domu szukając zaczepki</span>
+              <span v-else>Julik szczeka na wszystko, biega po świecie szukając zaczepki i siejąc terror</span>
+            </p>
           </section>
         </article>
       </main>

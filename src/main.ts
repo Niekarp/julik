@@ -3,6 +3,7 @@
 // TODO: make main section scale better when zooming out
 // TODO: add juik kosmiczny kolor
 // TODO: improve pageBeat animation performance
+// TODO: switch to rems
 import "./index.html";
 import "./styles/normalize.css";
 import "./styles.scss";
