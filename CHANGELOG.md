@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](///compare/v5.0.0...v5.1.0) (2021-02-03)
+
+
+### Features
+
+* **wola&app:** add olo and refactor app 1516c6b
+
+
+### Bug Fixes
+
+* **webpack:** fix paths 2d1b20f
+
 ## [5.0.0](///compare/v4.1.0...v5.0.0) (2021-02-01)
 
 
