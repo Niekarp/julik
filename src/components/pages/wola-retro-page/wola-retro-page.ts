@@ -82,7 +82,7 @@ export default class WolaRetroPage extends Vue {
 
   public switchPiece(newPiece: any) {
     const ASSETS_URL = ASSETS_PATH;
-    const SOUND_URL = `${ASSETS_URL}${newPiece.name}.${newPiece.ext}`.normalize("NFC");
+    const SOUND_URL = `${ASSETS_URL}${newPiece.filename}.${newPiece.ext}`.normalize("NFC");
     const COVER_URL = `${ASSETS_URL}${newPiece.cover}`.normalize("NFC");
 
     this.selectedPiece = newPiece;   
@@ -164,9 +164,12 @@ export default class WolaRetroPage extends Vue {
   return soundsUrl
     .map((soundUrl, idx) => {
       const splitUrl = soundUrl.split(".");
+      const splitNameAndIdx = splitUrl[1].split(" ");
       return {
-        name: splitUrl[1].substring(1),
-        ext: splitUrl[2],
+        idx:      splitNameAndIdx[0].substr(1),
+        name:     splitNameAndIdx.slice(1).join(" "),
+        filename: splitNameAndIdx.join(" ").substr(1),
+        ext:      splitUrl[2],
         cover: ""
       };
     })
