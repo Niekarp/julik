@@ -6,4 +6,18 @@
   &__listitem--horror::marker {
     content: "🦴   ";
   }
+
+  &__food-link {
+    text-decoration: none;
+
+    padding-right: 20px;
+    background-image: url("@Assets/icons/external-link.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 16px 16px;
+  }
+
+  &__food-link:hover {
+    border-bottom: 1px dotted;
+  }
 }
