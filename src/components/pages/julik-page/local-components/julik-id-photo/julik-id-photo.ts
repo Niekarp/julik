@@ -24,17 +24,21 @@ export default class JulikIdPhoto extends Vue {
     x: 0,
     y: 0,
   }
+  audioContext = new AudioContext();
+  woofAudioBuffer: AudioBuffer | null = null;
+
+  created() {
+    this.barkUrl_ = this.BARK_SOUND_URLS_.NORMAL;
+    this.getAudioFile(this.audioContext, this.barkUrl_).then(buffer => {
+      this.woofAudioBuffer = buffer;
+    });
+  }
 
   @Watch("horrorTheme")
   onHorrorThemeChange(newValue: any, oldValue: any) {
     if (newValue) {
       this.setHorrorTheme_();
     }
-  }
-
-  created() {
-    const vm = this;
-    vm.barkUrl_ = vm.BARK_SOUND_URLS_.NORMAL;
   }
 
   woofAndShake(event: { target: any; }) {
@@ -56,7 +60,13 @@ export default class JulikIdPhoto extends Vue {
   }
 
   woof_() {
-    (new Audio(this.barkUrl_)).play();
+    if (this.woofAudioBuffer) {
+      const node  = this.audioContext.createBufferSource();
+      node.buffer = this.woofAudioBuffer;
+      node.connect(this.audioContext.destination);
+      node.start();
+    }
+    // (new Audio(this.barkUrl_)).play();
   }
   
   allowJulikToMove_() {
@@ -87,5 +97,13 @@ export default class JulikIdPhoto extends Vue {
 
     this.barkUrl_ = this.BARK_SOUND_URLS_.HORROR;
     this.woof_();
+  }
+
+  // audio
+  async getAudioFile(audioContext: AudioContext, filepath: string) {
+    const response    = await fetch(filepath);
+    const arrayBuffer = await response.arrayBuffer();
+    const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+    return audioBuffer;
   }
 }
