@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.1.1](///compare/v5.1.0...v5.1.1) (2021-02-05)
+
+
+### Bug Fixes
+
+* **julik-id:** horror bark fix + refactor 66012c1
+* **julik-id:** improve woof audio ebebb70
+
 ## [5.1.0](///compare/v5.0.0...v5.1.0) (2021-02-03)
 
 
