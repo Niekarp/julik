@@ -35,7 +35,8 @@
       <div
         v-show="selectedPiece.cover && !blanket" 
         ref="coverOverlay"
-        class="cover-overlay">
+        class="cover-overlay"
+        v-bind:style="{ 'background-image': `url(${elCoverOverlayImgSrc})` }">
       </div>
     </transition>
   </div>

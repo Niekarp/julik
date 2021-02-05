@@ -6,10 +6,11 @@ export default class WolaRetroPage extends Vue {
   private audio_ = new Audio();
   private elVideoOverlay: any = null;
   private elCoverOverlay: any = null;
+  private elCoverOverlayImgSrc: string = "";
 
   public selectedPiece = {};
   public blanket = true;
-  private blanketDownTimeSec = 0.8;
+  private blanketDownTimeSec = 1.5;
 
   public mouseIsCalm = false;
   public mouseMovedRecently = false;
@@ -88,17 +89,39 @@ export default class WolaRetroPage extends Vue {
     this.selectedPiece = newPiece;   
 
     this.blanketDownMediaOff(this.blanketDownTimeSec * 1000).then(_ => {
+
       if (COVER_URL !== ASSETS_URL) {
         // new piece is audio-only
-        $(this.elCoverOverlay).css("background-image", `url("${COVER_URL}")`);
-        this.audio_ = new Audio(SOUND_URL);
-        this.audio_.play();
-      } else {
+
+        fetch(COVER_URL).then(response => response.blob()
+                        .then(blob => {
+            var objectURL = URL.createObjectURL(blob);
+
+            $('<img/>').attr('src', objectURL).on('load', (element) => {
+              $(element).remove();
+              // $(this).remove(); // prevent memory leaks as @benweet suggested
+              console.log("setting image");
+              this.elCoverOverlayImgSrc = objectURL;
+              // $(this.elCoverOverlay).css("background-image", `url("${objectURL}")`);
+              this.audio_ = new Audio(SOUND_URL);
+
+              setTimeout(() => {
+                this.blanket = false;
+                this.audio_.play();
+              }, 1000)
+            });;
+        }));
+      } 
+      else {
         // new piece is a video
         this.elVideoOverlay.src = SOUND_URL;
-        this.elVideoOverlay.play();
+
+        setTimeout(() => {
+          this.blanket = false;
+          this.elVideoOverlay.play();
+        }, 2000);
       }
-      this.blanket = false;
+      
     })
   }
 

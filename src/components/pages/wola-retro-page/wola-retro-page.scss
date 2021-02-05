@@ -91,18 +91,19 @@
   top: 0;
   left: 0;
   z-index: -1;
-}
-
-.fade-move {
-  transition: transform 2s;
-}
-
-.fade-overlay-enter-active, .fade-overlay-leave-active {
-  transition: opacity 0.5s;
+  opacity: 1;
 }
 
 .fade-overlay-enter, .fade-overlay-leave-to {
   opacity: 0;
+}
+
+.fade-overlay-enter-to, .fade-overlay-leave {
+  opacity: 1;
+}
+
+.fade-overlay-enter-active, .fade-overlay-leave-active {
+  transition: opacity 1s ease;
 }
 
 /* 
