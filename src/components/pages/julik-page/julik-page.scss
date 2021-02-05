@@ -32,6 +32,11 @@
     transition: background-color 1s, color 2s, background-color 2s, font-familly 3s, border 4s, border-radius 4s;
   }
 
+  &__title-header {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 28px;
+  }
+
   &__julik-id-photo {
     display: block;  
     inline-size: 100%;
@@ -49,14 +54,14 @@
 
 .baba-hero {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   position: relative;
+
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   
-  background-image: url("./assets/baba.png");
+  background-image: url("./assets/baba.jpg");
   background-position: top;
   background-attachment: scroll;
 }
@@ -106,9 +111,10 @@
 =============================================*/
 
 .patreons-container {
-  position: absolute;
-  top: 13%;
-  left: 60%;
+	height: 50%;
+	width: 100%;
+	flex-direction: row-reverse;
+	display: flex;
 }
 
 .patreons-header {
@@ -122,7 +128,7 @@
 }
 
 .patreons-list > li {
-  font-size: 3vw;
+  font-size: 35px;
   padding: 1vh 0vw;
   text-align: center;
 }
@@ -132,11 +138,51 @@
 }
 
 .patreons {
-	font-size: 5vw;
-	font-family: calibri;
+	font-size: 52px;
+	font-family: vipRoman;
 	background-color: rgba(0,0,0, 0.15);
 	border-radius: 8px;
 	padding: 0 6vw;
+}
+
+.patreons-wrapper {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* align-content: center; */
+  justify-content: center;
+  margin: 6vw;
+  font-size: 35px;
+}
+
+.julik-words-container {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* align-content: center; */
+  justify-content: center;
+  margin: 0 3vw;
+  padding: 0 2vw;
+  overflow: hidden;
+}
+
+.julik-words {
+  text-shadow: 1px 1px 1px black;
+
+  &__text {
+    font-size: 35px;
+    font-family: mullerhoff;
+  }
+  &__signature {
+    text-align: right;
+    /* margin-right: 100px; */
+    font-size: 5vw;
+    margin-right: 6vw;
+    margin-top: 3vh;
+    font-family: mullerhoff;
+  }
 }
 
 .body-animation {

@@ -6,7 +6,7 @@
     
     <div class="main-section" v-bind:class="{ 'main-section--horror': horrorOn }" ref="mainSection">
       <header>
-        <h1 v-if="!horrorOn">Julik pies bagienny groźny</h1>
+        <h1 v-if="!horrorOn" class="main-section__title-header">Julik pies bagienny groźny</h1>
         <h1 v-else class="horror-h1"><span lang="ja">✟ご飯が熱い。</span></h1>
       </header>
 
@@ -62,12 +62,20 @@
 
     <div v-show="!horrorOn" class="hero-section baba-hero full-screen">
       <div class="patreons-container">
-        <h2 class="patreons-header patreons">Patroni</h2>
-        <ul class="patreons-list patreons">
-          <li><div>Olaf D.</div></li>
-          <hr />
-          <li><div>Julik</div></li>
-        </ul>
+        <div class="patreons-wrapper">
+          <h2 class="patreons-header patreons">Patroni</h2>
+          <ul class="patreons-list patreons">
+            <li><div>Olaf D.</div></li>
+            <hr />
+            <li><div>Julik</div></li>
+          </ul>
+        </div>
+      </div>
+      <div class="julik-words-container">
+        <div class="julik-words">
+          <div class="julik-words__text">Julik chcialby podziekowac wszystkim osobom wspierajacym strone o Juliku. Swiadomosc tego, ze sa ludzie zdolni do zainwestowania w strone o psie domowym jest dla niego jak ranchos. Julik bardzo docenia swoich patronow i odgania dla nich inne psy, ktore jego zdaniem zagrazaja osobom znajdujacym sie w jego domu. Przeciez ci patroni mogliby sobie kupic ranchos zamiast inwestowac w strone o Juliku, co wydaje sie racjonalne. Jakby sie zastanowic to kazdy ranchos jest inny, ale nie wolno go mylic z prosiakiem. Wiem, ze prosiak nie jest zywy.</div>
+          <div class="julik-words__signature">Julik</div>
+        </div>
       </div>
     </div>
 
