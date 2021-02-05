@@ -8,99 +8,111 @@ import { Component, Prop, Watch } from "vue-property-decorator";
 
 @Component
 export default class JulikIdPhoto extends Vue {
-  @Prop() horrorTheme = false;
+  @Prop()
+  public horrorTheme = false;
+  private ishorrorOn = false;
 
-  julikImgUrl = NORMAL_JULIK_IMG_URL;
-  barkUrl_ = "";
-  ishorrorOn_ = false;
-  woofCount = 0;
-  woofCountTarget = 15;
-  BARK_SOUND_URLS_ = {
+  public julikImgUrl = NORMAL_JULIK_IMG_URL;
+  
+  public woofCount = 0;
+  public woofCountTarget = 15;
+  
+  private BARK_SOUND_URLS = {
     NORMAL: NORMAL_BARK_URL,
     HORROR: HORROR_BARK_URL,
   };
-  MOVEMENT_SPEED_ = 55;
-  julikPosition_ = {
+  
+  private MOVEMENT_SPEED = 55;
+  private julikPosition = {
     x: 0,
     y: 0,
   }
-  audioContext = new AudioContext();
-  woofAudioBuffer: AudioBuffer | null = null;
 
-  created() {
-    this.barkUrl_ = this.BARK_SOUND_URLS_.NORMAL;
-    this.getAudioFile(this.audioContext, this.barkUrl_).then(buffer => {
+  private audioContext = new AudioContext();
+  private woofAudioBuffer:       AudioBuffer | null = null;
+  private woofHorrorAudioBuffer: AudioBuffer | null = null;
+
+  private created() {
+    this.getAudioFile(this.audioContext, this.BARK_SOUND_URLS.NORMAL).then(buffer => {
       this.woofAudioBuffer = buffer;
+    });
+    this.getAudioFile(this.audioContext, this.BARK_SOUND_URLS.HORROR).then(buffer => {
+      this.woofHorrorAudioBuffer = buffer;
     });
   }
 
-  @Watch("horrorTheme")
-  onHorrorThemeChange(newValue: any, oldValue: any) {
-    if (newValue) {
-      this.setHorrorTheme_();
+  public woof() {
+    if (this.horrorTheme === false) {
+      if (this.woofAudioBuffer) {
+        const node  = this.audioContext.createBufferSource();
+        node.buffer = this.woofAudioBuffer;
+        node.connect(this.audioContext.destination);
+        node.start();
+      }
+    } else {
+      if (this.woofHorrorAudioBuffer) {
+        const node  = this.audioContext.createBufferSource();
+        node.buffer = this.woofHorrorAudioBuffer;
+        node.connect(this.audioContext.destination);
+        node.start();
+      }
     }
   }
 
-  woofAndShake(event: { target: any; }) {
-    this.woof_();
+  public woofAndShake(event: { target: any; }) {
+    this.woof();
     if (!this.horrorTheme) {
-      restartAnimation($(event.target), this.ishorrorOn_ ? "" : "julik-id-photo__photo--shaking");
+      restartAnimation($(event.target), this.ishorrorOn ? "" : "julik-id-photo__photo--shaking");
     }
   }
 
-  countWoofs() {
+  public notifyParent() {
+    this.$emit("wola-retro-clicked");
+  }
+
+  private countWoofs() {
     this.woofCount++;
     if (this.woofCount === this.woofCountTarget) {
       this.$emit("woof-target-reach");
     }
   }
 
-  notifyParent() {
-    this.$emit("wola-retro-clicked");
-  }
-
-  woof_() {
-    if (this.woofAudioBuffer) {
-      const node  = this.audioContext.createBufferSource();
-      node.buffer = this.woofAudioBuffer;
-      node.connect(this.audioContext.destination);
-      node.start();
+  @Watch("horrorTheme")
+  private onHorrorThemeChange(newValue: any, oldValue: any) {
+    if (newValue) {
+      this.setHorrorTheme();
     }
-    // (new Audio(this.barkUrl_)).play();
   }
   
-  allowJulikToMove_() {
+  private allowJulikToMove_() {
     const vm = this;
 
-    // TODO: clear callback on component deletion
     $(document).on("keydown", function(event) {
       if (event.key === "w") {
-        vm.julikPosition_.y -= vm.MOVEMENT_SPEED_;
+        vm.julikPosition.y -= vm.MOVEMENT_SPEED;
       } else if (event.key === "s") {
-        vm.julikPosition_.y += vm.MOVEMENT_SPEED_;
+        vm.julikPosition.y += vm.MOVEMENT_SPEED;
       } else if (event.key === "a") {
-        vm.julikPosition_.x -= vm.MOVEMENT_SPEED_;
+        vm.julikPosition.x -= vm.MOVEMENT_SPEED;
       } else if (event.key === "d") {
-        vm.julikPosition_.x += vm.MOVEMENT_SPEED_;
+        vm.julikPosition.x += vm.MOVEMENT_SPEED;
       }
 
       const $julikImg = $(vm.$refs.julikImg);
-      $julikImg.css("transform", `translate(${vm.julikPosition_.x}px, ${vm.julikPosition_.y}px) rotate(-27deg)`);
+      $julikImg.css("transform", `translate(${vm.julikPosition.x}px, ${vm.julikPosition.y}px) rotate(-27deg)`);
       ($julikImg.get(0) as HTMLElement).scrollIntoView({behavior: "smooth", block: "center"});
     });
   }
 
-  setHorrorTheme_() {
+  private setHorrorTheme() {
     this.julikImgUrl = HORROR_JULIK_URL;
 
     this.allowJulikToMove_();
 
-    this.barkUrl_ = this.BARK_SOUND_URLS_.HORROR;
-    this.woof_();
+    this.woof();
   }
 
-  // audio
-  async getAudioFile(audioContext: AudioContext, filepath: string) {
+  private async getAudioFile(audioContext: AudioContext, filepath: string) {
     const response    = await fetch(filepath);
     const arrayBuffer = await response.arrayBuffer();
     const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);

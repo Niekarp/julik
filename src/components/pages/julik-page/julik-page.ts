@@ -83,7 +83,7 @@ export default class JulikPage extends Vue {
   }
 
   public onMew() {
-    this.$refs.julik.woof_(); 
+    this.$refs.julik.woof(); 
     this.$emit("mew");
   }
 
