@@ -5,6 +5,41 @@
  */
 
 /*=============================================
+=            Fonts ||                         =
+=============================================*/
+
+@font-face {
+  font-family: "localLato";
+  src: url("./assets/fonts/Lato/Lato-Regular.ttf");
+}
+
+@font-face {
+  font-family: localXanhMono;
+  src: url("./assets/fonts/Xanh_Mono/XanhMono-Regular.ttf");
+}
+
+@font-face {
+  font-family: localMontserrat;
+  src: url("./assets/fonts/Montserrat/Montserrat-ExtraLight.ttf");
+}
+
+@font-face {
+  font-family: localAmaticSC;
+  src: url("./assets/fonts/Amatic_SC/AmaticSC-Regular.ttf");
+}
+
+@font-face {
+  font-family: vipRoman;
+  src: url("./assets/fonts/vip_roman/VIPRoman-Regular.ttf");
+}
+
+/*=====  End of Fonts |              ======*/
+
+
+
+
+
+/*=============================================
 =            General ||                       =
 =============================================*/
 
@@ -98,37 +133,6 @@ a:hover {
 }
 
 /*=====  End of Classes ||             ======*/
-
-
-
-
-
-/*=============================================
-=            Fonts ||                         =
-=============================================*/
-
-// TODO: move to the top of the file
-@font-face {
-  font-family: "localLato";
-  src: url("./assets/fonts/Lato/Lato-Regular.ttf");
-}
-
-@font-face {
-  font-family: localXanhMono;
-  src: url("./assets/fonts/Xanh_Mono/XanhMono-Regular.ttf");
-}
-
-@font-face {
-  font-family: localMontserrat;
-  src: url("./assets/fonts/Montserrat/Montserrat-ExtraLight.ttf");
-}
-
-@font-face {
-  font-family: localAmaticSC;
-  src: url("./assets/fonts/Amatic_SC/AmaticSC-Regular.ttf");
-}
-
-/*=====  End of Fonts |              ======*/
 
 
 
