@@ -16,6 +16,10 @@
   &__text {
     inline-size: 100%;
     margin: 0;
+    text-transform: lowercase;
+    letter-spacing: 0.2rem;
+    word-spacing: 0.1rem;
+    font-family: xanh_monoregular, 'Times New Roman', Times, serif;
     transform: translateX(100%);
 
     &--moving {

@@ -95,5 +95,5 @@
   </div>
 </template>
 
-<script src="./julik-page.ts"  module></script>
-<style  src="./julik-page.scss" scoped lang="scss"></style>
+<script src="./julik-page.ts"   module></script>
+<style  src="./julik-page.scss" lang="scss"></style>
