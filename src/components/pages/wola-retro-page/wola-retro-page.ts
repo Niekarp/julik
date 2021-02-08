@@ -100,7 +100,7 @@ export default class WolaRetroPage extends Vue {
             $('<img/>').attr('src', objectURL).on('load', (element) => {
               $(element).remove();
               // $(this).remove(); // prevent memory leaks as @benweet suggested
-              console.log("setting image");
+              // console.log("setting image");
               this.elCoverOverlayImgSrc = objectURL;
               // $(this.elCoverOverlay).css("background-image", `url("${objectURL}")`);
               this.audio_ = new Audio(SOUND_URL);

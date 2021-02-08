@@ -39,7 +39,7 @@ export default class MewPage extends Vue {
 
     setTimeout(() => {
       vm.letterShow = true;
-      console.log("mew");
+      // console.log("mew");
     }, 6000)
 
     setTimeout(() => {

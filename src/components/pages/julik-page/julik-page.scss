@@ -139,7 +139,7 @@
 
 .patreons {
 	font-size: 52px;
-	font-family: vipRoman;
+	font-family: vip_romanregular, 'Times New Roman', Times, serif;
 	background-color: rgba(0,0,0, 0.15);
 	border-radius: 8px;
 	padding: 0 6vw;
@@ -173,7 +173,7 @@
 
   &__text {
     font-size: 35px;
-    font-family: mullerhoff;
+    font-family: herr_von_muellerhoffregular, fantasy;
   }
   &__signature {
     text-align: right;
@@ -181,7 +181,7 @@
     font-size: 5vw;
     margin-right: 6vw;
     margin-top: 3vh;
-    font-family: mullerhoff;
+    font-family: herr_von_muellerhoffregular, fantasy;
   }
 }
 

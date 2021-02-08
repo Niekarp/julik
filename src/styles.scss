@@ -9,33 +9,57 @@
 =============================================*/
 
 @font-face {
-  font-family: "localLato";
-  src: url("./assets/fonts/Lato/Lato-Regular.ttf");
+  font-family: 'latoregular';
+  src: url("./assets/fonts/Lato/Lato-Regular.ttf")           format("truetype"),
+       url('./assets/fonts/Lato/lato-regular-webfont.woff2') format('woff2'),
+       url('./assets/fonts/Lato/lato-regular-webfont.woff')  format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: localXanhMono;
-  src: url("./assets/fonts/Xanh_Mono/XanhMono-Regular.ttf");
+  font-family: 'xanh_monoregular';
+  src: url("./assets/fonts/Xanh_Mono/XanhMono-Regular.ttf")           format("truetype"),
+       url('./assets/fonts/Xanh_Mono/xanhmono-regular-webfont.woff2') format('woff2'),
+       url('./assets/fonts/Xanh_Mono/xanhmono-regular-webfont.woff')  format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: localMontserrat;
-  src: url("./assets/fonts/Montserrat/Montserrat-ExtraLight.ttf");
+  font-family: 'amatic_scregular';
+  src: url("./assets/fonts/Amatic_SC/AmaticSC-Regular.ttf")           format("truetype"),
+       url('./assets/fonts/Amatic_SC/amaticsc-regular-webfont.woff2') format('woff2'),
+       url('./assets/fonts/Amatic_SC/amaticsc-regular-webfont.woff')  format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: localAmaticSC;
-  src: url("./assets/fonts/Amatic_SC/AmaticSC-Regular.ttf");
+  font-family: 'montserratextralight';
+  src: url("./assets/fonts/Montserrat/Montserrat-ExtraLight.ttf")           format("truetype"),
+       url('./assets/fonts/Montserrat/montserrat-extralight-webfont.woff2') format('woff2'),
+       url('./assets/fonts/Montserrat/montserrat-extralight-webfont.woff')  format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: vipRoman;
-  src: url("./assets/fonts/vip_roman/VIPRoman-Regular.ttf");
+  font-family: 'vip_romanregular';
+  src: url("./assets/fonts/vip_roman/VIPRoman-Regular.ttf")           format("truetype"),
+       url('./assets/fonts/vip_roman/viproman-regular-webfont.woff2') format('woff2'),
+       url('./assets/fonts/vip_roman/viproman-regular-webfont.woff')  format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: mullerhoff;
-  src: url("./assets/fonts/herr-von-muellerhoff/HerrVonMuellerhoff-Regular.otf");
+  font-family: 'herr_von_muellerhoffregular';
+  src: url("./assets/fonts/herr-von-muellerhoff/HerrVonMuellerhoff-Regular.otf")           format("otf"),
+       url('./assets/fonts/herr-von-muellerhoff/herrvonmuellerhoff-regular-webfont.woff2') format('woff2'),
+       url('./assets/fonts/herr-von-muellerhoff/herrvonmuellerhoff-regular-webfont.woff')  format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 /*=====  End of Fonts |              ======*/
@@ -51,7 +75,7 @@
 html {
   position: relative;
   font-size: 12px;
-  font-family: "localLato", sans-serif;
+  font-family: "latoregular", Arial, Helvetica, sans-serif;
   color: ghostwhite;
   cursor: url("./assets/images/dog-cursor.png"), default;
   background-color: white;
