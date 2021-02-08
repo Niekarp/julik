@@ -1,6 +1,6 @@
 {
   "name": "julik",
-  "version": "5.1.1",
+  "version": "5.1.2",
   "description": "webpage about julik",
   "private": true,
   "scripts": {
@@ -44,5 +44,5 @@
     "vue-property-decorator": "^9.1.2",
     "vue-snowf": "0.0.2"
   },
-  "lastReleaseDate": "Feb. 3"
+  "lastReleaseDate": "Feb. 5"
 }
