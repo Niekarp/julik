@@ -40,7 +40,30 @@ a:active {
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   opacity: 0;
-  background: linear-gradient(0deg, rgba(56,0,0,0.6990371148459384) 0%, rgba(88,46,19,0.6970763305322129) 65%);
+  transition: background 1s;
+
+  &--brown {
+    background: linear-gradient(0deg, rgba(56,0,0,0.6990371148459384) 0%, rgba(88,46,19,0.6970763305322129) 65%);
+    box-shadow: 0px 0px 1px sandybrown;
+  }
+
+  &--blue {
+    background: linear-gradient(0deg, rgba(23, 0, 56, 0.7) 0%, rgba(19, 52, 88, 0.7) 65%);
+    box-shadow: 0px 0px 1px #60a8f4;
+
+    a:link {
+      color: #00f3ff;
+      text-decoration: none;
+    }
+    
+    a:visited {
+      color: #009fff;
+    }
+  }
+
+  // &--horror {
+    // background: linear-gradient(0deg, rgba(23, 0, 56, 0.7) 0%, rgba(19, 52, 88, 0.7) 65%);
+  // }
 
   &--horror {
     background: darkred !important;
@@ -53,6 +76,7 @@ a:active {
                 -20px -40px 40px #cd4606,
                 0 -50px 65px #973716,
                 10px -70px 70px #451b0e;
+    box-shadow: 0px 0px 1px darkred;
 
     transition: background-color 1s, color 2s, background-color 2s, font-familly 3s, border 4s, border-radius 4s;
   }
@@ -75,6 +99,57 @@ a:active {
     padding: 10px 0;
     margin: 0;
   }
+}
+
+.main-section--brown::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+
+  box-shadow: 0px 0px 50px sandybrown;
+  border-radius: 8px;
+
+  opacity: 0;
+  animation: pageBeat 10s ease-in 0s infinite,  
+  // transition: opacity 10s;
+}
+
+.main-section--blue::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+
+  box-shadow: 0px 0px 50px #60a8f4;
+  border-radius: 8px;
+
+  opacity: 0;
+  animation: pageBeat 10s ease-in 0s infinite,  
+  // transition: opacity 10s;
+}
+
+.main-section--horror::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+
+  box-shadow: 0px 0px 50px crimson;
+  border-radius: 130px 130px 0px 0px !important;
+
+  opacity: 0;
+  animation: pageBeat 10s ease-in 0s infinite,  
+  // transition: opacity 10s;
 }
 
 .baba-hero {
@@ -148,7 +223,6 @@ a:active {
 	top: 0;
 	align-content: center;
 	justify-content: space-evenly;
-	border-radius: 3rem;
 }
 
 .patreons-container {
@@ -229,14 +303,13 @@ a:active {
 
 .body-animation {
   animation: 
-    /* pageBeat 10s ease-in 0s infinite,  */
     fadeInOpacity 2s ease-in-out 0s 1,
     scaleIn 2s ease-in-out 0s 1;
 }
 @keyframes pageBeat {
-  0%    {box-shadow: 0px 0px 1px sandybrown;}
-  50%   {box-shadow: 0px 0px 50px sandybrown;}
-  100%  {box-shadow: 0px 0px 1px sandybrown;}
+  0%    {opacity: 0;}
+  50%   {opacity: 1;}
+  100%  {opacity: 0;}
 }
 
 @keyframes scaleIn {
@@ -264,8 +337,8 @@ a:active {
 }
 
 @keyframes pageBeatHorror {
-  0%    {box-shadow: 0px 0px 1px darkred;}
-  50%   {box-shadow: 0px 0px 50px crimson;}
+  0%    {}
+  50%   {}
   100%  {box-shadow: 0px 0px 1px darkslategray;}
 }
 

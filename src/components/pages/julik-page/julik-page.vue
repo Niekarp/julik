@@ -4,7 +4,7 @@
       <welcome-section class="full-screen" v-bind:scroll-arrow-target="elMainSection"></welcome-section>
     </header>
     
-    <div class="main-section" v-bind:class="{ 'main-section--horror': horrorOn }" ref="mainSection">
+    <div class="main-section" v-bind:class="{ 'main-section--horror': horrorOn, 'main-section--brown': !secondBackgroundOn && !horrorOn, 'main-section--blue': secondBackgroundOn && !horrorOn }" ref="mainSection">
       <header>
         <h1 v-if="!horrorOn" class="main-section__title-header">Julik pies bagienny groźny</h1>
         <h1 v-else class="horror-h1"><span lang="ja">✟ご飯が熱い。</span></h1>

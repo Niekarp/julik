@@ -40,19 +40,14 @@ export default class JulikPage extends Vue {
   
   public secondBackgroundOn = false;
   private backgroundChangeTimeSec = 30;
-  private backgroundChangeInterval: NodeJS.Timeout;
-
-  constructor() {
-    super();
-
-    const vm = this;
-    this.backgroundChangeInterval = setInterval(() => {
-      vm.secondBackgroundOn = vm.secondBackgroundOn ? false : true;
-    }, vm.backgroundChangeTimeSec * 1000);
-  }
+  private backgroundChangeInterval!: NodeJS.Timeout;
 
   private created() {
     const vm = this;
+
+    this.backgroundChangeInterval = setInterval(() => {
+      this.secondBackgroundOn = this.secondBackgroundOn ? false : true;
+    }, this.backgroundChangeTimeSec * 1000);
 
     $(window).on("resize", function() {
       vm.adjustStickyTopForMainSection();
@@ -109,6 +104,7 @@ export default class JulikPage extends Vue {
     this.horrorOn = true;
 
     clearInterval(this.backgroundChangeInterval);
+    this.secondBackgroundOn = false;
 
     $(window).scrollTop(0);
     $(document.documentElement).addClass(["horror-html"]);
