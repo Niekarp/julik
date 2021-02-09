@@ -155,6 +155,10 @@ p, ul {
   font-family: cursive !important;
   cursor: url("./assets/icons/skull.cur"), default;
   transition: background-color 1s, color 2s, font-familly 3s, border 4s, border-radius 4s;
+
+  :hover {
+    cursor: url("./assets/icons/skull.cur"), default;
+  }
 }
 
 /*=====  End of Classes ||             ======*/
