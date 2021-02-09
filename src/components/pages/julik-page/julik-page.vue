@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header v-show="!horrorOn">
+    <header v-show="!horrorOn" ref="welcomeSection">
       <welcome-section class="full-screen" v-bind:scroll-arrow-target="elMainSection"></welcome-section>
     </header>
     
@@ -60,7 +60,7 @@
       </aside>
     </div>
 
-    <div v-show="!horrorOn" class="hero-section baba-hero full-screen">
+    <div v-show="!horrorOn" class="hero-section baba-hero full-screen" ref="heroSection">
       <div class="patreons-container">
         <div class="patreons-wrapper">
           <h2 class="patreons-header patreons">Patroni</h2>
@@ -80,6 +80,8 @@
     </div>
 
     <!-- Elements positioned absolutely -->
+    <nav-bar v-show="!horrorOn" class="nav-bar-container" v-bind:navTargets="elSections" v-bind:activeTab="activeSection"></nav-bar>
+
     <div id="loading-page">
       <div>
         <img src="assets/favicon.ico" id="loading-img">
