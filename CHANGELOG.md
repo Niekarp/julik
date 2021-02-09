@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](///compare/v5.1.2...v5.2.0) (2021-02-09)
+
+
+### Features
+
+* **julik-page:** add navbar 2fb2a64
+
+
+### Bug Fixes
+
+* **scripts:** adjust createVueComponent to ts 5e238ae
+
 ### [5.1.2](///compare/v5.1.1...v5.1.2) (2021-02-08)
 
 ### [5.1.1](///compare/v5.1.0...v5.1.1) (2021-02-05)
