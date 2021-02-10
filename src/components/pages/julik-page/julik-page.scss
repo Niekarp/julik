@@ -29,8 +29,13 @@ a:active {
   color: crimson;
 }
 
-.main-section {
+.main-section-container {
   position: sticky;
+  min-height: 100vh;
+}
+
+.main-section {
+  position: relative;
   inline-size: 450px;
   margin: 0 auto;
   margin-bottom: 50px;

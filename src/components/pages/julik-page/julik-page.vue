@@ -4,60 +4,62 @@
       <welcome-section class="full-screen" v-bind:scroll-arrow-target="elMainSection"></welcome-section>
     </header>
     
-    <div class="main-section" v-bind:class="{ 'main-section--horror': horrorOn, 'main-section--brown': !secondBackgroundOn && !horrorOn, 'main-section--blue': secondBackgroundOn && !horrorOn }" ref="mainSection">
-      <header>
-        <h1 v-if="!horrorOn" class="main-section__title-header">Julik pies bagienny groźny</h1>
-        <h1 v-else class="horror-h1"><span lang="ja">✟ご飯が熱い。</span></h1>
-      </header>
+    <div class="main-section-container">
+      <div class="main-section" v-bind:class="{ 'main-section--horror': horrorOn, 'main-section--brown': !secondBackgroundOn && !horrorOn, 'main-section--blue': secondBackgroundOn && !horrorOn }" ref="mainSection">
+        <header>
+          <h1 v-if="!horrorOn" class="main-section__title-header">Julik pies bagienny groźny</h1>
+          <h1 v-else class="horror-h1"><span lang="ja">✟ご飯が熱い。</span></h1>
+        </header>
 
-      <main>
-        <article>
-          <section>
-            <a name="julik-photo"></a>
-            <julik-id-photo class="main-section__julik-id-photo" v-on:woof-target-reach="setHorrorMode" v-on:wola-retro-clicked="onWolaRetroClick" :horror-theme="horrorOn" name="julik-img" ref="julik"></julik-id-photo>
-          </section>
+        <main>
+          <article>
+            <section>
+              <a name="julik-photo"></a>
+              <julik-id-photo class="main-section__julik-id-photo" v-on:woof-target-reach="setHorrorMode" v-on:wola-retro-clicked="onWolaRetroClick" :horror-theme="horrorOn" name="julik-img" ref="julik"></julik-id-photo>
+            </section>
 
-          <section>
-            <h2>
-              <span v-if="!horrorOn">Ogółem</span>
-              <span v-else>Abstrakt</span>
-            </h2>
-            <p>
-              <span v-if="!horrorOn">
-                <a href="#julik-photo"> Julik</a> został przywieziony z Hiszpanii i czasem chodzi do fryzjera
-              </span>
-              <span v-else>
-                Julik został przywieziony z Piekła i czasem chodzi do egzorcysty
-              </span>
-            </p>
-          </section>
+            <section>
+              <h2>
+                <span v-if="!horrorOn">Ogółem</span>
+                <span v-else>Abstrakt</span>
+              </h2>
+              <p>
+                <span v-if="!horrorOn">
+                  <a href="#julik-photo"> Julik</a> został przywieziony z Hiszpanii i czasem chodzi do fryzjera
+                </span>
+                <span v-else>
+                  Julik został przywieziony z Piekła i czasem chodzi do egzorcysty
+                </span>
+              </p>
+            </section>
+          
+            <section>
+              <food-list ref="foodList" :horror-theme="horrorOn" v-on:mew="onMew"></food-list>
+            </section>
+
+            <section>
+              <h2>Zachowanie</h2>
+              <p>
+                <span v-if="!horrorOn">Julik szczeka na swoje odbicie w lustrze i biega wtedy po domu szukając zaczepki</span>
+                <span v-else>Julik szczeka na wszystko, biega po świecie szukając zaczepki i siejąc terror</span>
+              </p>
+            </section>
+          </article>
+        </main>
+
+        <hr />
         
-          <section>
-            <food-list ref="foodList" :horror-theme="horrorOn" v-on:mew="onMew"></food-list>
-          </section>
+        <footer>
+          <p v-show="!horrorOn">Kochasz Julika? <a href="mailto:olino00727@gmail.com?cc=skrzynkaof@gmail.com&subject=Uwielbiam%20Juliki&body=Julik%20to%20tak%20jak%20najlepszy%20pies%20na%20podlasiu%20wg.%20mnie.">Daj nam znać co o tym sądzisz</a></p>
+          <button v-show="horrorOn" v-on:click="resetFoodListAndTurnHorroOff">Reset</button>    
+        </footer>
 
-          <section>
-            <h2>Zachowanie</h2>
-            <p>
-              <span v-if="!horrorOn">Julik szczeka na swoje odbicie w lustrze i biega wtedy po domu szukając zaczepki</span>
-              <span v-else>Julik szczeka na wszystko, biega po świecie szukając zaczepki i siejąc terror</span>
-            </p>
-          </section>
-        </article>
-      </main>
-
-      <hr />
-      
-      <footer>
-        <p v-show="!horrorOn">Kochasz Julika? <a href="mailto:olino00727@gmail.com?cc=skrzynkaof@gmail.com&subject=Uwielbiam%20Juliki&body=Julik%20to%20tak%20jak%20najlepszy%20pies%20na%20podlasiu%20wg.%20mnie.">Daj nam znać co o tym sądzisz</a></p>
-        <button v-show="horrorOn" v-on:click="resetFoodListAndTurnHorroOff">Reset</button>    
-      </footer>
-
-      <aside>
-        <transition name="fade">
-          <news-banner v-if="!horrorOn" class="main-section__news-banner"></news-banner>
-        </transition>
-      </aside>
+        <aside>
+          <transition name="fade">
+            <news-banner v-if="!horrorOn" class="main-section__news-banner"></news-banner>
+          </transition>
+        </aside>
+      </div>
     </div>
 
     <div v-show="!horrorOn" class="hero-section baba-hero full-screen" ref="heroSection">

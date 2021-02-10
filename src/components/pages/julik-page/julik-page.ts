@@ -130,7 +130,8 @@ export default class JulikPage extends Vue {
   }
 
   private adjustStickyTopForMainSection() {
-    const $mainSection = $(this.$refs.mainSection);
-    $mainSection.css("top", -($mainSection.height()! + 70 - $(window).height()!));
+    const $mainSection = $(this.$refs.mainSection.parentElement!);
+    const newTop = -($mainSection.height()! + 70 - $(window).height()!);
+    $mainSection.css("top", newTop > 0 ? 0 : newTop);
   }
 }
