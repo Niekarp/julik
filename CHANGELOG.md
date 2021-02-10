@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.1](///compare/v5.2.0...v5.2.1) (2021-02-10)
+
+
+### Bug Fixes
+
+* **cursor:** proper icons on hover 045d6b1
+* **julik:** repair pageBeat and second background theme 8f9c6f9
+* **welcome-section:** dog face on hover 15d817b
+
 ## [5.2.0](///compare/v5.1.2...v5.2.0) (2021-02-09)
 
 
