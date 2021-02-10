@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.2.2](///compare/v5.2.1...v5.2.2) (2021-02-10)
+
+
+### Bug Fixes
+
+* **julik-page:** main-section better whole page 95cfe91
+* **wola:** prevent multiple media to play at once 72505ba
+
 ### [5.2.1](///compare/v5.2.0...v5.2.1) (2021-02-10)
 
 
