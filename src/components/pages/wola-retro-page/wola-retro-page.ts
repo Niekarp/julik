@@ -4,6 +4,7 @@ import Component from "vue-class-component";
 @Component
 export default class WolaRetroPage extends Vue {
   private audio_ = new Audio();
+  private pieceChanges = false;
   private elVideoOverlay: any = null;
   private elCoverOverlay: any = null;
   private elCoverOverlayImgSrc: string = "";
@@ -82,6 +83,9 @@ export default class WolaRetroPage extends Vue {
   }
 
   public switchPiece(newPiece: any) {
+    if (this.pieceChanges) return;
+    this.pieceChanges = true;
+
     const ASSETS_URL = ASSETS_PATH;
     const SOUND_URL = `${ASSETS_URL}${newPiece.filename}.${newPiece.ext}`.normalize("NFC");
     const COVER_URL = `${ASSETS_URL}${newPiece.cover}`.normalize("NFC");
@@ -108,9 +112,10 @@ export default class WolaRetroPage extends Vue {
               setTimeout(() => {
                 this.blanket = false;
                 this.audio_.play();
+                this.pieceChanges = false;
               }, 1000)
             });;
-        }));
+        })).catch(_ => this.pieceChanges = false);
       } 
       else {
         // new piece is a video
@@ -119,6 +124,7 @@ export default class WolaRetroPage extends Vue {
         setTimeout(() => {
           this.blanket = false;
           this.elVideoOverlay.play();
+          this.pieceChanges = false;
         }, 2000);
       }
       
