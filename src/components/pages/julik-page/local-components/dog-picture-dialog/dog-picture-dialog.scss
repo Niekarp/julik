@@ -1,0 +1,207 @@
+.dog-picture-dialog {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: rgba(0, 96, 134, 0.3);
+  padding: 5rem;
+  padding-bottom: 3rem;
+  width: 80vw;
+  height: 85vh;
+  border-radius: 3rem;
+  border: 1px solid black;
+
+
+  &__header {
+    height: 10%;
+    margin: 0;
+    font-size: 5rem;
+    font-family: monospace;
+    color: ivory;
+  }
+
+  &__separator {
+    display: block;
+    // width: 100%;
+    height: 0%;
+    color: black;
+    margin: 0rem;
+  }
+
+  &__image-separator {
+    display: block;
+    height: 100%;
+    margin: 0rem;
+    color: black;
+  }
+
+  &__class-title {
+    position: absolute;
+    color: gold;
+    font-family: monospace;
+    font-size: 3rem;
+  }
+
+  &__random-dog {
+    position: absolute;
+    right: 0;
+    color: floralwhite;
+    font-size: 3rem;
+    z-index: 9999;
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+  }
+
+  &__random-dog:hover { 
+    cursor: pointer;
+  }
+
+  &__grid {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    // grid-template-rows: 1fr 1fr;
+    gap: 5rem 0rem;
+    align-content: start;
+
+    height: 100%;
+    padding-top: 5rem;
+  }
+
+  &__exit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+    font-size: 4rem;
+    /* border: 3px solid white; */
+    /* border-radius: 1rem; */
+    color: red;
+    padding: 1rem;
+    width: 3rem;
+    text-align: center;
+    transition: all 0.5s;
+    font-family: fantasy;
+  }
+
+  &__exit:hover {
+    // border: 3px solid red; 
+    color: white;
+    cursor: pointer;
+  }
+
+  &__image {
+    // max-width: 20rem;
+    width: 90%;
+    max-height: 100%;
+    margin: auto;
+    border: 1px solid white;
+    border-radius: 2rem;
+    // transform: translateY(270px) rotate(-90deg);
+    transition: all 0.5s;
+  }
+
+  &__image:hover {
+    max-width: 30rem;
+    max-width: 100%;
+    box-shadow: 0px 0 10px 4px gold;
+    cursor: pointer;
+    transform: scale(1.4);
+    // dziwne skakanie
+    // transform: rotateX(360deg) translateZ(200px);
+    z-index: 999;
+  }
+}
+
+.images-container {
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.images-container::after {
+  content: "<";
+  display: block;
+  position: absolute;
+  right: -5rem;
+  top: calc(50%);
+  font-size: 9rem;
+  /* height: 50%; */
+  line-height: 0.4;
+  font-family: fantasy;
+}
+
+.grid-container {
+  width: 70%;
+  height: 100%;
+  position: relative;
+}
+
+.wheel {
+  height: 100%;
+  width: 30%;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__face {
+    display: flex;
+    width: 100%;
+    height: 35%;
+    position: absolute;
+    backface-visibility: hidden;
+    justify-content: space-evenly;
+
+    &--1 {
+      transform: rotateX(0deg) translateZ(270px);
+    }
+    &--2 {
+      transform: rotateX(45deg) translateZ(270px);
+    }
+    &--3 {
+      transform: rotateX(90deg) translateZ(270px);
+    }
+    &--4 {
+      transform: rotateX(135deg) translateZ(270px);
+    }
+    &--5 {
+      transform: rotateX(180deg) translateZ(270px);
+    }
+    &--6 {
+      transform: rotateX(225deg) translateZ(270px);
+    }
+    &--7 {
+      transform: rotateX(270deg) translateZ(270px);
+    }
+    &--8 {
+      transform: rotateX(315deg) translateZ(270px);
+    }
+  }
+
+  &__image {
+    max-height: 100%;
+    margin: auto;
+    border: 1px solid white;
+    border-radius: 2rem;
+    transition: all 0.5s;
+
+    &--selected {
+      box-shadow: 0px 0 10px 4px aqua;
+    }
+  }
+}
+
+.drive-in-animation {
+  animation-name: driveIn;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+@keyframes driveIn {
+  0%   { transform: translateX(-100%) rotateZ(-20deg) translateY(-11rem); }
+  50%  { transform: translateX(0%)    rotateZ(-20deg) translateY(-11rem); }
+  100% { transfrom: translateX(0%)    rotateZ(0deg)   translateY(0rem);   }
+}

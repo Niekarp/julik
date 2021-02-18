@@ -1,12 +1,20 @@
+import Vue from "vue";
+import { Component, Prop, Watch } from "vue-property-decorator";
+
 import NORMAL_JULIK_IMG_URL from "./assets/julik.jpg";
 import NORMAL_BARK_URL from "./assets/bark.wav";
 import HORROR_BARK_URL from "./assets/bark-horror.mp3";
 import HORROR_JULIK_URL from "./assets/julik-horror.png";
-import { restartAnimation } from "@/utils/utils";
-import Vue from "vue";
-import { Component, Prop, Watch } from "vue-property-decorator";
 
-@Component
+import { restartAnimation } from "@/utils/utils";
+import DogPictureDialog from "@Pages/julik-page/local-components/dog-picture-dialog/dog-picture-dialog.vue";
+import { createPromiseDialog } from "vue-promise-dialogs";
+
+@Component ({
+  components: {
+    DogPictureDialog
+  }
+})
 export default class JulikIdPhoto extends Vue {
   @Prop()
   public horrorTheme = false;
@@ -28,6 +36,8 @@ export default class JulikIdPhoto extends Vue {
     y: 0,
   }
 
+  private dialogOpen = false;
+
   private audioContext = new AudioContext();
   private woofAudioBuffer:       AudioBuffer | null = null;
   private woofHorrorAudioBuffer: AudioBuffer | null = null;
@@ -38,6 +48,16 @@ export default class JulikIdPhoto extends Vue {
     });
     this.getAudioFile(this.audioContext, this.BARK_SOUND_URLS.HORROR).then(buffer => {
       this.woofHorrorAudioBuffer = buffer;
+    });
+  }
+
+  private mounted() {
+    return;
+    const openDialog = createPromiseDialog<{ text: string }, string>(DogPictureDialog);
+    openDialog({ text: 'Some text' }).then(avatarUrl => {
+      if (avatarUrl !== "exit") {
+        this.julikImgUrl = avatarUrl;
+      }
     });
   }
 
@@ -68,6 +88,19 @@ export default class JulikIdPhoto extends Vue {
 
   public notifyParent() {
     this.$emit("wola-retro-clicked");
+  }
+
+  public openDialog() {
+    if (this.dialogOpen) return;
+    // console.log("opening dialog...");
+    
+    this.dialogOpen = true;
+    const openDialog = createPromiseDialog<{ text: string }, string>(DogPictureDialog);
+    openDialog({ text: 'Some text' }).then(avatarUrl => {
+      if (avatarUrl !== "exit") {
+        this.julikImgUrl = avatarUrl;
+      }
+    }).finally(() => { this.dialogOpen = false; });
   }
 
   private countWoofs() {
@@ -108,6 +141,7 @@ export default class JulikIdPhoto extends Vue {
     this.julikImgUrl = HORROR_JULIK_URL;
 
     this.allowJulikToMove_();
+    $(".julik-id-photo__photo").removeClass(":hover");
 
     this.woof();
   }

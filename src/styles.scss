@@ -130,6 +130,17 @@ p, ul {
   display: flex;
 }
 
+.full-screen-dialog {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .dog-background {
   background-image: url("./assets/images/b1.jpg");
   -webkit-background-size: cover;
@@ -176,6 +187,14 @@ p, ul {
 }
 
 .fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.fade-fast-enter-active, .fade-fast-leave-active {
+  transition: opacity 1s;
+}
+
+.fade-fast-enter, .fade-fast-leave-to {
   opacity: 0;
 }
 

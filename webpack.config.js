@@ -11,6 +11,7 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const IS_DEVELOPMENT = true;
 
 const WOLA_SOUNDS_COVERS_CWD = "./src/components/pages/wola-retro-page/assets/";
+const JULIK_AVATARS_PATH = "./src/components/pages/julik-page/local-components/dog-picture-dialog/assets/avatars/";
 const DIST_ASSETS_PATH = "./assets/";
 
 module.exports = {
@@ -53,6 +54,7 @@ module.exports = {
       WOLA_COVERS_OLAF: JSON.stringify(glob.sync("./*", { cwd: WOLA_SOUNDS_COVERS_CWD + "olaf/" + "covers/" })),
       WOLA_SOUNDS_OLO:  JSON.stringify(glob.sync("./*", { cwd: WOLA_SOUNDS_COVERS_CWD + "olo/"  + "sounds/" })),
       WOLA_COVERS_OLO:  JSON.stringify(glob.sync("./*", { cwd: WOLA_SOUNDS_COVERS_CWD + "olo/"  + "covers/" })),
+      JULIK_AVATARS:    JSON.stringify(glob.sync("./*", { cwd: JULIK_AVATARS_PATH }))
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -60,6 +62,7 @@ module.exports = {
         { from: WOLA_SOUNDS_COVERS_CWD + "olaf/" + "covers/", to: DIST_ASSETS_PATH },
         { from: WOLA_SOUNDS_COVERS_CWD + "olo/"  + "sounds/", to: DIST_ASSETS_PATH },
         { from: WOLA_SOUNDS_COVERS_CWD + "olo/"  + "covers/", to: DIST_ASSETS_PATH },
+        { from: JULIK_AVATARS_PATH, to: DIST_ASSETS_PATH }
       ],
     }),
     new VueLoaderPlugin(),

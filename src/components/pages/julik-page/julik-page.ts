@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Component from "vue-class-component";
+import { createPromiseDialog } from "vue-promise-dialogs";
 
 import WelcomeSection from "./local-components/welcome-section/welcome-section.vue";
 import NewsBanner     from "./local-components/news-banner/news-banner.vue";

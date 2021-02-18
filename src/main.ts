@@ -21,6 +21,8 @@ new Vue({
 $("#version-string").text(`v. ${getAppVersion()} (${getLastUpdateDate()})`);
 
 $(() => {
+  // console.log(JULIK_AVATARS);
+  
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
   }

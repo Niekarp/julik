@@ -2,16 +2,27 @@
   position: relative;
   border: 0px 0px 8px black;
   border-radius: 16px;
+  overflow: hidden;
+
+  &--horror {
+    overflow: visible;
+  }
 
   &__photo {
     width: 100%;
     height: 100%;
     border-radius: 16px;
+    transition: transform 0.5s;
     cursor: url("@Assets/images/dog-open-cursor.png"), default;
 
     &--shaking {
       animation: julik-id-photo__shaking-transformation 0.2s 0s 2,
                  julik-id-photo__border-radius-transformation 5s ease-in-out 0s infinite alternate,
+    }
+
+    &--normal {}
+    &--normal:hover {
+      transform: rotate(2deg) scale(1.2);
     }
 
     &--horror {
@@ -24,9 +35,37 @@
       transform: rotate(-27deg);
       inline-size: 80% !important;
       transition: all 0.1s ease-in-out;
+      overflow: visible;
       z-index: 50;
       cursor: url("@Assets/icons/skull.cur"), default;
     }
+  }
+
+  &__settings {
+    width: 5rem;
+    height: 5rem;
+
+    position: absolute;
+    right: 1rem;
+    top: -0.5rem;
+
+    font-size: 3rem;
+    color: whitesmoke;
+    text-align: right;
+
+    transition: all 0.5s;
+
+    // background-image: url("@Assets/icons/external-link.png");
+    // background-repeat: no-repeat;
+    // background-position: right;
+    // background-size: 16px 16px;
+  }
+
+  &__settings:hover {
+    cursor: url("@Assets/images/dog-open-cursor.png"), default;
+    // cursor: pointer;
+    font-size: 5rem;
+    color: gold;
   }
 
   &__wola-retro-button {
@@ -51,6 +90,18 @@
 }
 
 @keyframes julik-id-photo__border-radius-transformation {
-  0%   { border-radius: 10px 80px 50px 20px;  }
-  100% { border-radius: 70px 20px 120px 70px; }
+  0%   { border-radius: 10px 30px 50px 20px;  }
+  100% { border-radius: 70px 10px 120px 70px; }
 }
+
+// ??
+// .julik-id-photo:hover {
+// 	overflow: hidden;
+// 	perspective: 100px;
+// 	transform: translateZ(50px);
+// }
+// .julik-id-photo__photo:hover {
+// 	/* overflow: hidden; */
+// 	/* perspective: 2px; */
+// 	transform: translateZ(10px);
+// }

@@ -3,12 +3,14 @@
     <transition name="component-fade" mode="out-in">
       <component v-bind:is="currentPageName" v-on:wola-retro="navigateToWolaRetro" v-on:mew="mewMew"></component>
     </transition>
+    <promise-dialogs-wrapper></promise-dialogs-wrapper>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import { PromiseDialogsWrapper } from "vue-promise-dialogs";
 
 import JulikPage     from "@Pages/julik-page/julik-page.vue";
 import WolaRetroPage from "@Pages/wola-retro-page/wola-retro-page.vue";
@@ -21,6 +23,7 @@ import MewPage       from "@Pages/mew-page/mew-page.vue";
     WolaRetroPage,
     MewPage,
     // TestPage,
+    PromiseDialogsWrapper
   },
 })
 export default class App extends Vue {
