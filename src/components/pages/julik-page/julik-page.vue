@@ -56,7 +56,7 @@
 
         <aside>
           <transition name="fade">
-            <news-banner v-if="!horrorOn" class="main-section_julikAvatarsClasseSelected_news-banner"></news-banner>
+            <news-banner v-if="!horrorOn" class="main-section__news-banner"></news-banner>
           </transition>
         </aside>
       </div>
