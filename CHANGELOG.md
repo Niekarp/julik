@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.3.0](///compare/v5.2.2...v5.3.0) (2021-02-18)
+
+
+### Features
+
+* change picture dialog & zoom on picture 316aba6
+
 ### [5.2.2](///compare/v5.2.1...v5.2.2) (2021-02-10)
 
 
