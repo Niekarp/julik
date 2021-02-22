@@ -1,102 +1,121 @@
-import Vue from "vue";
 import Component from "vue-class-component";
 import { BasePromiseDialog } from "vue-promise-dialogs"
 
+interface dogClass {
+  name: string,
+  imgUrls: string[]
+}
+
 @Component
 export default class DogPictureDialog extends BasePromiseDialog<{ text: string }, string> {
-  public julikAvatarsUrls = JULIK_AVATARS.map(avatarUrl => ASSETS_PATH + avatarUrl);
-  public julikAvatarsClasses = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [], 8: [] };
-  public julikAvatarsClassNames = {
-    1: "Julik siedzący",
-    2: "Julik dowodowy",
-    3: "Julik leśny",
-    4: "Julik zaoknowy",
-    5: "Julik szczytowy",
-    6: "Julik odgórny",
-    7: "Julik wywalony",
-    8: "Julik gryzący"
-  }
-  public julikAvatarsClasseSelected = 1;
-  public visible = true;
+  public isVisible = true;
+  public dogClassIsUpdating = false;
 
-  public viewMode = true;
+  public wheelRotation = 0;
+  public rotationCheckpointWidth = 10;
+  
+  public wheelRecentlyRotated = false;
+  public wheelIdleTime = 0.5;
 
-  public rotationX = -18000;
-  public translationY = 270;
-  public rotationCheckpoints = [
-    { level: 1, from: 350,  to: 10 },
-    { level: 2, from: 35,   to: 55 }, 
-    { level: 3, from: 80,   to: 90 },
-    { level: 4, from: 125,  to: 145 },
-    { level: 5, from: 170,  to: 190 },
-    { level: 6, from: 215,  to: 235 },
-    { level: 7, from: 260,  to: 280 },
-    { level: 8, from: 310,  to: 330 },
+  public dogImgUrls = JULIK_AVATARS.map(avatarUrl => ASSETS_PATH + avatarUrl);
+
+  public dogClasses: dogClass[] = [
+    { name: "Julik siedzący", imgUrls: [] },
+    { name: "Julik dowodowy", imgUrls: [] },
+    { name: "Julik leśny",    imgUrls: [] },
+    { name: "Julik zaoknowy", imgUrls: [] },
+    { name: "Julik szczytowy",imgUrls: [] },
+    { name: "Julik odgórny",  imgUrls: [] },
+    { name: "Julik wywalony", imgUrls: [] },
+    { name: "Julik gryzący",  imgUrls: [] },
   ];
+  public selectedDogClass = {
+    idx: 0,
+    imgUrls: new Array<string>(0)
+  };
+
+  constructor() {
+    super();
+
+    JULIK_AVATARS.forEach(avatarRelativeUrl => {
+      const dogClassIdx = Number(avatarRelativeUrl.split(" ")[0].slice(2));
+
+      this.dogClasses[dogClassIdx].imgUrls.push(ASSETS_PATH + avatarRelativeUrl);
+    });
+  }
 
   public created() {
     $(document.documentElement).css("overflow", "hidden");
 
-    // console.log(this.julikAvatarsClasses);
+    this.updateSelectedDogClass(this.dogClasses[0]);
+  }
 
-    JULIK_AVATARS.map(avatarUrl => {
-      const julikClass = avatarUrl.split(" ")[0].slice(2);
-      // console.log(julikClass);
-      (this.julikAvatarsClasses as any)[julikClass].push(ASSETS_PATH + avatarUrl);
-    });
+  private onMouseWheel(event: JQuery.TriggeredEvent) {
+    const originalEvent = event.originalEvent as WheelEvent;
+    
+    this.rotateWheel(Math.floor(originalEvent.deltaY / 5));
 
-    // console.log(this.julikAvatarsClasses);
+    if (this.dogClassIsUpdating) return;
+    this.dogClassIsUpdating = true;
+
+    const updateClassInterval = setInterval(() => {
+      if (this.wheelRecentlyRotated) {
+        this.wheelRecentlyRotated = false;
+        return;
+      }
+
+      const newRotationCheckpoint = this.getNearestRotationCheckpoint();
+    
+      if (this.selectedDogClass.idx !== newRotationCheckpoint)
+      {
+        this.highlightRotationCheckpoint((this.selectedDogClass.idx = newRotationCheckpoint));
+        this.updateSelectedDogClass(this.dogClasses[this.selectedDogClass.idx]);
+      }
+
+      clearInterval(updateClassInterval);
+    }, this.wheelIdleTime * 1000);
+  }
+
+  private rotateWheel(deg: number) {
+    this.wheelRotation += deg;
+    $(".wheel").css("transform", `rotateX(${this.wheelRotation}deg)`);
+    this.wheelRecentlyRotated = true;
+  }
+
+  private getNearestRotationCheckpoint() {
+    const nearestRotationCheckpoint = Math.round(-this.wheelRotation / 45) % 8;
+    const newRotationCheckpoint = (((nearestRotationCheckpoint < 0) ? (8 + nearestRotationCheckpoint) : nearestRotationCheckpoint)); 
+    return newRotationCheckpoint;
+  }
+
+  private highlightRotationCheckpoint(checkpoint: number) {
+    $(".wheel__image").removeClass("wheel__image--selected");
+    $(`.wheel__face--${checkpoint}`).children().addClass("wheel__image--selected");  
+  }
+
+  private updateSelectedDogClass(newDogClass: dogClass) {
+    this.dogClassIsUpdating = true;
+    
+    const dogsCount = this.selectedDogClass.imgUrls.length;
+
+    newDogClass.imgUrls.forEach(dogUrl => this.selectedDogClass.imgUrls.unshift(dogUrl));
+    setTimeout(() => {
+      for (let i = 0; i < dogsCount; ++i) this.selectedDogClass.imgUrls.pop();
+      this.dogClassIsUpdating = false;
+    }, 1000);
   }
 
   public mounted() {
-    $(window).on("DOMMouseScroll", (event: any) => {
-      // console.log("scroll eent");
-
-      // const picHeight = 270;
-      // const containerHeight = 580;
-
-      const scrollSpeed = 3;
-      const isScrollUp = (event.originalEvent.wheelDelta > 0) || (event.originalEvent.detail < 0);
-      this.rotationX += isScrollUp ? -scrollSpeed : scrollSpeed;
-
-      // const scope = 10;
-      // const classNumber = ((Math.floor(Math.abs(this.rotationX / 45)) % 8) ) + 1;
-      // this.julikAvatarsClasseSelected = ((this.rotationX % 360) - (classNumber * 45 - scope) < scope) ? classNumber : this.julikAvatarsClasseSelected;
-      const rotationAbs = Math.abs(this.rotationX % 360);
-        // console.log("rotation: ", rotationAbs);
-      const level = this.rotationCheckpoints.find((level) => {
-        // console.log(level);
-        
-
-        if (level.level === 1) {
-          return rotationAbs >= level.from || rotationAbs <= level.to;
-        }
-        
-        return rotationAbs >= level.from && rotationAbs <= level.to;
-      });
-
-      this.julikAvatarsClasseSelected = level ? level.level : this.julikAvatarsClasseSelected;
-
-      // console.log("class selected:", this.julikAvatarsClasseSelected);
-
-      $(".wheel__image").removeClass("wheel__image--selected");
-      $(`.wheel__face--${this.julikAvatarsClasseSelected}`).children().addClass("wheel__image--selected");
-      
-      $(".wheel").css("transform", `rotateX(${this.rotationX}deg)`);
-      // $(".dog-picture-dialog__image").css("color", "red");
-      // console.log("rotation", this.rotationX);
-      // console.log("selected class", this.julikAvatarsClasseSelected);
-      
-    })
+    $(".wheel").on("wheel", this.onMouseWheel);
   }
 
   public beforeDestroy() {
     $(document.documentElement).css("overflow", "visible"); 
-    $(window).off("DOMMouseScroll mousewheel");
+    $(".wheel").off("wheel");
   }
 
   public onAvatarChoose(avatarUrl: string) {
-    this.visible = false;
+    this.isVisible = false;
 
     setTimeout(() => {
       this.resolve(avatarUrl);
@@ -105,31 +124,39 @@ export default class DogPictureDialog extends BasePromiseDialog<{ text: string }
 
   public chooseRandomAvatar() {
     const randomClass = Math.floor(Math.random() * 7) + 1;
-    const randomImage = Math.floor(Math.random() * (this.julikAvatarsClasses as any)[randomClass].length);
+    const randomImage = Math.floor(Math.random() * this.dogClasses[randomClass].imgUrls.length);
     
-    this.onAvatarChoose((this.julikAvatarsClasses as any)[randomClass][randomImage]);
+    this.onAvatarChoose(this.dogClasses[randomClass].imgUrls[randomImage]);
   }
 
   public rotateToClass(classNumber: number) {
-    const classDeg = classNumber * 45;
-    const rotationAbs = Math.abs(this.rotationX % 360);
-    const degDiff = rotationAbs - classDeg;
+    if (classNumber === this.selectedDogClass.idx) return;
 
-    this.julikAvatarsClasseSelected = classNumber + 1;
-    this.rotationX += degDiff;
+    const nearestCheckpoint = this.getNearestRotationCheckpoint();
 
-    $(".wheel__image").removeClass("wheel__image--selected");
-    $(`.wheel__face--${this.julikAvatarsClasseSelected}`).children().addClass("wheel__image--selected");
+    let checkpointDiff = nearestCheckpoint - classNumber;
+    if (checkpointDiff <= -4) {
+      checkpointDiff += 8;
+    }
+    else if (checkpointDiff > 4) {
+      checkpointDiff -= 8;
+    }
+
+    this.wheelRotation = (Math.round(this.wheelRotation / 45) * 45) + (checkpointDiff * 45);
     
     $(".wheel").css("transition", "transform 1s"); 
-    $(".wheel").css("transform", `rotateX(${this.rotationX}deg)`);
+    $(".wheel").css("transform", `rotateX(${this.wheelRotation}deg)`);
     setTimeout(() => {
       $(".wheel").css("transition", "none");   
     }, 1200);
+
+    this.selectedDogClass.idx = classNumber;
+    this.updateSelectedDogClass(this.dogClasses[classNumber]);
+    this.highlightRotationCheckpoint(this.selectedDogClass.idx);
   }
 
   public onExit() {
-    this.visible = false;
+    this.isVisible = false;
 
     setTimeout(() => {
       this.reject('exit');

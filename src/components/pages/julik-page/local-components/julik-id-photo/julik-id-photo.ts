@@ -51,16 +51,6 @@ export default class JulikIdPhoto extends Vue {
     });
   }
 
-  private mounted() {
-    return;
-    const openDialog = createPromiseDialog<{ text: string }, string>(DogPictureDialog);
-    openDialog({ text: 'Some text' }).then(avatarUrl => {
-      if (avatarUrl !== "exit") {
-        this.julikImgUrl = avatarUrl;
-      }
-    });
-  }
-
   public woof() {
     if (this.horrorTheme === false) {
       if (this.woofAudioBuffer) {
@@ -100,7 +90,7 @@ export default class JulikIdPhoto extends Vue {
       if (avatarUrl !== "exit") {
         this.julikImgUrl = avatarUrl;
       }
-    }).finally(() => { this.dialogOpen = false; });
+    }).catch(() => {}).finally(() => { this.dialogOpen = false; });
   }
 
   private countWoofs() {
