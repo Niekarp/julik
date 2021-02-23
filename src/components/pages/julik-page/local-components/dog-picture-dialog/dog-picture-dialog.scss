@@ -61,11 +61,10 @@
   &__grid {
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    // grid-template-rows: 1fr 1fr;
-    gap: 5rem 0rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    /* gap: 0rem 1rem; */
     align-content: start;
-
     height: 100%;
     padding-top: 5rem;
   }
@@ -93,14 +92,13 @@
   }
 
   &__image {
-    // max-width: 20rem;
-    width: 90%;
-    max-height: 100%;
+    max-width: 90%;
+    height: 80%;
     margin: auto;
     border: 1px solid white;
     border-radius: 2rem;
-    // transform: translateY(270px) rotate(-90deg);
     transition: all 0.5s;
+    object-fit: cover;
   }
 
   &__image:hover {
