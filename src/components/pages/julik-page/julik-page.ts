@@ -25,7 +25,7 @@ import NavBarT        from "./local-components/navbar/navbar";
 export default class JulikPage extends Vue {
   $refs!: {
     welcomeSection: Element,
-    mainSection: Element,
+    mainSectionContainer: Element,
     heroSection: Element,
     foodList: FoodListT,
     julik: JulikIdPhotoT
@@ -33,7 +33,7 @@ export default class JulikPage extends Vue {
 
   public horrorOn = false;
 
-  public elMainSection: Element | null = null;
+  public elMainSectionContainer: Element | null = null;
   public elwelcomeSection: Element | null = null;
   public elheroSection: Element | null = null;
   public elSections: Element[] | null = null;
@@ -55,7 +55,8 @@ export default class JulikPage extends Vue {
     });
 
     $(window).on("scroll", function(event) {
-      const $mainSection = $(vm.$refs.mainSection);
+      const $mainSection = $(vm.$refs.mainSectionContainer);
+      
       const targetOffset = $mainSection.offset()!.top - ($mainSection.height()! / 2);
 
       // show main section once when scrolled down
@@ -72,19 +73,20 @@ export default class JulikPage extends Vue {
       const windowTopOffset = $(window).scrollTop()!; 
 
       const welcomeOffsetTarget = $(this.elSections![0]).height()! / 2;
-      const julikOffsetTarget   = $(this.elSections![0]).height()! * 1.5;
+      // const julikOffsetTarget   = $(this.elSections![0]).height()! * 1.5;
+      const julikOffsetTarget   = (welcomeOffsetTarget * 2) + ($(this.elSections![1]).height()! / 2);
       const heroOffsetTarget    = $(this.elSections![2]).offset()!.top + ($(this.elSections![2]).height()! / 2);
-
-      // console.log(this.activeSection);
-      // console.log(windowTopOffset);
-      // console.log(welcomeOffsetTarget);
-      // console.log(julikOffsetTarget);
-      // console.log(heroOffsetTarget);      
+      
+      // console.log("active section: ", this.activeSection);
+      // console.log("windowTopOffset: ", windowTopOffset);
+      // console.log("welcomeOffset:", welcomeOffsetTarget);
+      // console.log("julik offset: ", julikOffsetTarget);
+      // console.log("hero offset: ", heroOffsetTarget);      
 
       if (windowTopOffset <= welcomeOffsetTarget) {
         this.activeSection = 0;
       }
-      else if (windowTopOffset <= julikOffsetTarget) {
+      else if ($(window).scrollTop()! + $(window).height()!  <= heroOffsetTarget) {
         this.activeSection = 1;
       }
       else {
@@ -95,9 +97,9 @@ export default class JulikPage extends Vue {
 
   private mounted() {
     this.elwelcomeSection = this.$refs.welcomeSection;
-    this.elMainSection = this.$refs.mainSection;
+    this.elMainSectionContainer = this.$refs.mainSectionContainer;
     this.elheroSection = this.$refs.heroSection;
-    this.elSections = [this.elwelcomeSection, this.elMainSection, this.elheroSection];
+    this.elSections = [this.elwelcomeSection, this.elMainSectionContainer, this.elheroSection];
     this.adjustStickyTopForMainSection();
   }
 
@@ -111,6 +113,8 @@ export default class JulikPage extends Vue {
     $(document.documentElement).addClass(["horror-html"]);
 
     this.$refs.foodList.foodList[1].name = "Ludzie";
+
+    $(".julik-id-photo__photo").draggable();
   }
 
   public onWolaRetroClick() {
@@ -131,7 +135,7 @@ export default class JulikPage extends Vue {
   }
 
   private adjustStickyTopForMainSection() {
-    const $mainSection = $(this.$refs.mainSection.parentElement!);
+    const $mainSection = $(this.$refs.mainSectionContainer);
     const newTop = -($mainSection.height()! + 70 - $(window).height()!);
     $mainSection.css("top", newTop > 0 ? 0 : newTop);
   }

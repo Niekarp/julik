@@ -37,8 +37,12 @@
   },
   "dependencies": {
     "@erikwatson/snowfall": "^3.0.4",
+    "@types/jqueryui": "^1.12.14",
     "fireworks": "^2.2.6",
     "jquery": "^3.5.1",
+    "jquery-ui": "^1.12.1",
+    "jquery-ui-dist": "^1.12.1",
+    "jquery-ui-touch-punch": "^0.2.3",
     "vue": "^2.6.12",
     "vue-class-component": "^7.2.6",
     "vue-promise-dialogs": "^1.0.2",

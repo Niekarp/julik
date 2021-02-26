@@ -13,6 +13,7 @@ export default class TestPage extends Vue {
 
   public elMainSection = document.getElementById("pumba");
 
+  // mew
   mounted() {
     this.elMainSection = document.getElementById("pumba"); 
   }

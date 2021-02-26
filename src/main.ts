@@ -8,6 +8,9 @@ import "./index.html";
 import "./styles/normalize.css";
 import "./styles.scss";
 
+import "jquery-ui";
+import "touch-punch";
+
 import Vue from "vue";
 import App from "./app.vue";
 import { CreateElement } from "vue/types/umd";

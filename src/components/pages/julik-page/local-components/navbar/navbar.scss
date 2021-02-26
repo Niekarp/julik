@@ -1,16 +1,38 @@
 .navbar { 
+  
   &__tab {
     background-color: rgba(255, 255, 255, 0.2);
     font-size: 4rem;
     border-radius: 3rem;
     height: 7rem;
-    line-height: 1.6;
-    padding-left: 0.7rem;
+    line-height: 2;
+    /* padding-left: 0.7rem; */
     transition: all 0.5s;
+    width: 6rem;
+    text-align: center;
 
     &--active {
       background-color: #f4a460b3;
     }
+  }
+
+  @media screen and (min-width: 45rem) {
+    &__tab {
+      background-color: rgba(255, 255, 255, 0.2);
+      font-size: 4rem;
+      border-radius: 3rem;
+      height: 7rem;
+      line-height: 1.6;
+      padding-left: 0.7rem;
+      transition: all 0.5s;
+
+      width: unset;
+      text-align: unset;
+
+      &--active {
+        background-color: #f4a460b3;
+      }
+    }  
   }
 
   &__tab:hover {

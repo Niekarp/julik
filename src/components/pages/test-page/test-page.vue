@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="mew full-screen" v-on:click="bark">{{zlew}}</div>
-    <welcome-section class="full-screen" v-bind:scroll-arrow-target="elMainSection"></welcome-section>
+    <welcome-section class="full-screen" v-bind:scroll-arrow-target="elMainSectionContainer"></welcome-section>
     <div id="pumba">pumba</div>
   </div>
 </template>

@@ -32,7 +32,7 @@
       border: 1px solid navajowhite !important;
       box-shadow: 0px 0px 5px white;
       margin: 0 auto;
-      transform: rotate(-27deg);
+      transform: rotate(-15deg);
       inline-size: 80% !important;
       transition: all 0.1s ease-in-out;
       overflow: visible;
@@ -78,6 +78,16 @@
     background-color: gray;
     opacity: 0.3;
     z-index: 49;
+  }
+}
+
+@media screen and (min-width: 45rem) {
+  .julik-id-photo { 
+    &__photo {
+      &--horror {
+        transform: rotate(-27deg);
+      }
+    }
   }
 }
 

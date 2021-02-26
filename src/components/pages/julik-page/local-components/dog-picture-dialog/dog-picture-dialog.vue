@@ -9,7 +9,9 @@
             <span class="dog-picture-dialog__class-title">{{ dogClasses[selectedDogClass.idx].name }}</span>
             <span class="dog-picture-dialog__random-dog" @click="chooseRandomAvatar" title="losowy Julik">?</span>
             <transition-group appear name="fade" class="dog-picture-dialog__grid">
-              <img v-for="avatarUrl in selectedDogClass.imgUrls" :src="avatarUrl" v-bind:key="avatarUrl" @click="onAvatarChoose(avatarUrl)" class="dog-picture-dialog__image" />
+              <div class="dog-picture-dialog__image-container" v-for="avatarUrl in selectedDogClass.imgUrls" v-bind:key="avatarUrl" >
+                <img :src="avatarUrl" @click="onAvatarChoose(avatarUrl)" class="dog-picture-dialog__image" />
+              </div>
             </transition-group>
           </div>
           <hr class="dog-picture-dialog__image-separator" />

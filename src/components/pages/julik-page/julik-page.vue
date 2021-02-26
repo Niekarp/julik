@@ -1,17 +1,17 @@
 <template>
   <div>
     <header v-show="!horrorOn" ref="welcomeSection">
-      <welcome-section class="full-screen" v-bind:scroll-arrow-target="elMainSection"></welcome-section>
+      <welcome-section v-bind:scroll-arrow-target="elMainSectionContainer"></welcome-section>
     </header>
     
-    <div class="main-section-container">
-      <div class="main-section" v-bind:class="{ 'main-section--horror': horrorOn, 'main-section--brown': !secondBackgroundOn && !horrorOn, 'main-section--blue': secondBackgroundOn && !horrorOn }" ref="mainSection">
+    <main class="main-section-container" ref="mainSectionContainer">
+      <div class="main-section" v-bind:class="{ 'main-section--horror': horrorOn, 'main-section--brown': !secondBackgroundOn && !horrorOn, 'main-section--blue': secondBackgroundOn && !horrorOn }">
         <header>
           <h1 v-if="!horrorOn" class="main-section__title-header">Julik pies bagienny groźny</h1>
           <h1 v-else class="horror-h1"><span lang="ja">✟ご飯が熱い。</span></h1>
         </header>
 
-        <main>
+        <div>
           <article>
             <section>
               <a name="julik-photo"></a>
@@ -45,7 +45,7 @@
               </p>
             </section>
           </article>
-        </main>
+        </div>
 
         <hr />
         
@@ -60,9 +60,9 @@
           </transition>
         </aside>
       </div>
-    </div>
+    </main>
 
-    <div v-show="!horrorOn" class="hero-section baba-hero full-screen" ref="heroSection">
+    <footer v-show="!horrorOn" class="hero-section baba-hero full-screen" ref="heroSection">
       <div class="patreons-container">
         <div class="patreons-wrapper">
           <h2 class="patreons-header patreons">Patroni</h2>
@@ -79,13 +79,13 @@
           <div class="julik-words__signature">Julik</div>
         </div>
       </div>
-    </div>
+    </footer>
 
     <!-- Elements positioned absolutely -->
     <nav-bar v-show="!horrorOn" class="nav-bar-container" v-bind:navTargets="elSections" v-bind:activeTab="activeSection"></nav-bar>
 
     <div id="loading-page">
-      <div>
+      <div id="img-string-container">
         <img src="assets/favicon.ico" id="loading-img">
         <p id="version-string"></p>
       </div>

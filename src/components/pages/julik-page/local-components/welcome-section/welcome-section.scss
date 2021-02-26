@@ -1,60 +1,41 @@
 .welcome-section {
-  position: relative;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   background-image: url("./assets/welcome-julik.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 
   &__header {
-    /* padding: 0 25%; */
+    flex: 1;
+    padding: 0;
     margin: 0;
     margin-bottom: 10vh;
-    /* border-radius: 16px; */
-    font-family: vip_romanregular, 'Times New Roman', Times, serif;
-    font-size: 16vh;
-    color: rgba(255, 255, 255, 0.9);
-    text-shadow: none;
+    border-top: solid 1px white;
+    border-bottom: solid 1px white;
     background-color: rgba(0, 0, 0, 0.24);
-    width: 100%;
-    padding: 0;
-    outline: solid 1px white;
-
-    // padding: 0 10vw;
-    // margin: 0;
-    // margin-bottom: 10vh;
-    // border-radius: 30px;
-    // font-family: vipRoman;
-    // font-size: 16vh;
-    // color: rgba(255, 255, 255, 0.9);
-    // text-shadow: none;
-    // background-color: rgba(0,0,0, 0.15);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: vip_romanregular, 'Times New Roman', Times, serif;
+    font-size: calc(4rem + 10vw);
+    text-shadow: none;
   }
 
   &__scroll-arrow {
+    width:  calc(4rem + 5vw);
+    height: calc(4rem + 5vw);
+    border: solid #fff;
+    border-width: 0 0.6rem 0.6rem 0;
+    margin-bottom: 6vh;
     position: absolute;
     bottom: 0;
-    width: 10vh;
-    height: 10vh;
-    margin-bottom: 5vh;
-    border: solid #fff;
-    border-width: 0 1vh 01vh 0;
-    cursor: pointer;
-    transform: rotate(45deg);
     box-shadow: 1 1 1 1;
-    border-radius: 0px 5px 5px 5px;
+    border-radius: 0px 0.5rem 0.5rem 0.5rem;
+    cursor: pointer;    
     transition: border-color 1s;
-    // position: absolute;
-    // bottom: 0;
-    // width:  10vh;
-    // height: 10vh;
-    // margin-bottom: 5vh;
-    // border: solid white;
-    // border-width: 0 1vh 1vh 0;
-    // cursor: pointer;
-    // transform: rotate(45deg);
+    transform:  rotate(45deg);
 
     &--pointing-down {
       animation-name: scrollArrowFloating;
@@ -72,9 +53,9 @@
 }
 
 @keyframes scrollArrowFloating {
-  0%         { transform: translateY(0px)  rotate(45deg); border-color: #fff;}
-  5%         { transform: translateY(20px) rotate(45deg); border-color: black;}
-  10%        { transform: translateY(0px)  rotate(45deg); border-color: black;}
-  15%        { transform: translateY(20px) rotate(45deg); border-color: black;}
-  20%, 100%  { transform: translateY(0px)  rotate(45deg); border-color: #fff;}
+  0%         { transform: translateY(0px) rotate(45deg); border-color: #fff;}
+  5%         { transform: translateY(3vh) rotate(45deg); border-color: black;}
+  10%        { transform: translateY(0px) rotate(45deg); border-color: black;}
+  15%        { transform: translateY(3vh) rotate(45deg); border-color: black;}
+  20%, 100%  { transform: translateY(0px) rotate(45deg); border-color: #fff;}
 }

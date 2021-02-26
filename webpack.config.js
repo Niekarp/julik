@@ -31,7 +31,9 @@ module.exports = {
       "@Assets":     path.resolve(__dirname, "src/assets/"),
       "@Services":   path.resolve(__dirname, "src/services/"),
       "@Utils":      path.resolve(__dirname, "src/utils/"),
-      "@LocalComponents": "./local-components/"
+      "@LocalComponents": "./local-components/",
+      'jquery-ui':   'jquery-ui-dist/jquery-ui.js',
+      'touch-punch': 'jquery-ui-touch-punch/jquery.ui.touch-punch.min.js'
     },
     plugins: [new TsconfigPathsPlugin()],
     extensions: [ '.ts', '.tsx', '.js', ".vue" ],
