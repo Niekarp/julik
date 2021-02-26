@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](///compare/v5.3.0...v6.0.0) (2021-02-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* apply mobile first layout approach
+
+### Features
+
+* mobile support 6cce3dd
+
+
+### Bug Fixes
+
+* **dog-dialog:** better scale images 00a1656
+* **dog-dialog:** refactor 292bbdb
+* **julik-page:** class typo 98e7434
+
 ## [5.3.0](///compare/v5.2.2...v5.3.0) (2021-02-18)
 
 
