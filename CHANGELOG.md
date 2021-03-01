@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.1](///compare/v6.0.0...v6.0.1) (2021-03-01)
+
+
+### Bug Fixes
+
+* **dog-dialog-dekstop:** don't scale wheel images with viewport height 2312a23
+
 ## [6.0.0](///compare/v5.3.0...v6.0.0) (2021-02-26)
 
 
