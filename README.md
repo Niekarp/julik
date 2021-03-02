@@ -22,4 +22,12 @@ Vue.js, Webpack, SASS, TypeScript, BEM
 
 ## Gallery
 
-<img src="readme images/home.png">
+<img src="readme-images/welcome.png">
+<img src="readme-images/theme 1.png">
+<img src="readme-images/theme 2.png">
+<img src="readme-images/letter.png">
+<img src="readme-images/wheel.png">
+<img src="readme-images/mobile.png">
+<img src="readme-images/horror.png">
+<img src="readme-images/player 1.png">
+<img src="readme-images/player 2.png">
